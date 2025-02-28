@@ -1,0 +1,41 @@
+{% extends "admin_pages/base_admin.html" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+
+    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-md">
+        <h2 class="text-2xl font-bold text-center text-gray-700">Admin page</h2>
+
+      
+        <!-- Forgot password -->
+        <div class="text-center">
+            <a href="{{url_for('add_blog')}}" class="text-sm text-blue-500 hover:text-blue-600">Add a blog</a>
+        </div>
+        <div class="text-center">
+            <a href="{{url_for('add_news')}}" class="text-sm text-blue-500 hover:text-blue-600">Add News</a>
+        </div>
+        <div class="text-center">
+            <a href="{{url_for('add_obituary')}}" class="text-sm text-blue-500 hover:text-blue-600">Add an Obituary</a>
+        </div>
+        <div class="text-center">
+            <a href="{{url_for('add_event')}}" class="text-sm text-blue-500 hover:text-blue-600">Add an Event</a>
+        </div>
+        <div class="text-center">
+            <a href="{{url_for('add_artist')}}" class="text-sm text-blue-500 hover:text-blue-600">Add an Artist</a>
+        </div>
+        <div class="text-center">
+            <a href="{{url_for('edit_about_us')}}" class="text-sm text-blue-500 hover:text-blue-600">Edit About us content</a>
+        </div>
+        <div class="text-center">
+            <a href="{{url_for('edit_static_pages_content')}}" class="text-sm text-blue-500 hover:text-blue-600">Static Pages Content</a>
+        </div>
+        <!-- Forgot password -->
+        <div class="text-center">
+            <a href="{{url_for('logout')}}" class="text-sm text-blue-500 hover:text-blue-600">logout</a>
+        </div>
+
+      
+
+    </div>
+
+
+    {% endblock %}

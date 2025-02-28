@@ -1,0 +1,172 @@
+{% extends "base.html" %}
+{% block title %} Artists {% endblock %}
+{% block content %}
+
+<main class="px-3 flex flex-col gap-2 mb-6 sm:mb-2 xl:max-w-[1280px] w-full">
+  <!-- heading -->
+  <div class="flex justify-center items-center">
+    <h2 class="text-4xl sm:text-5xl lg:text-6xl text-darkmain font-extrabold">
+      Artists <br />
+    </h2>
+  </div>
+
+  <!-- Kalapraskar -->
+  <div class="flex flex-col gap-3">
+    <!-- head -->
+    <div class="flex">
+      <h4 class="text-xl font-semibold lg:text-2xl xl:text-3xl text-darkmain">
+        Kalapraskar
+      </h4>
+    </div>
+
+    <!-- Profiles -->
+    <div class="flex gap-2 sm:gap-4 xl:gap-4 sm:flex-wrap button-slider overflow-hidden">
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist1.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Eddie Netto
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist2.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Alwyn Noronha
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm?w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist3.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Meena Rebimbus
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist1.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Eddie Netto
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist2.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Alwyn Noronha
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist3.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Meena Rebimbus
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist1.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Eddie Netto
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist2.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Alwyn Noronha
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist3.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Meena Rebimbus
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist1.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Eddie Netto
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist2.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Alwyn Noronha
+        </h6>
+      </a>
+
+      <!-- Profile card -->
+      <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+        <img
+          src="{{url_for('static', filename='assets/artist3.jpg')}}"
+          class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+          alt=""
+        />
+        <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">
+          Meena Rebimbus
+        </h6>
+      </a>
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}

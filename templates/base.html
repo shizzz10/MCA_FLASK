@@ -1,0 +1,308 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/MCAlogo.png')}}" />
+
+    <link href="{{url_for('static', filename='styles/output.css')}}" rel="stylesheet" />
+    <title>{% block title %} {% endblock %} | MCA</title>
+  </head>
+
+  <body class="xl:flex xl:flex-col xl:items-center">
+
+    <header class="flex justify-between items-center gap-2 px-3 py-0.5 xl:max-w-[1280px] w-full">
+      <!-- logo -->
+      <div class="flex items-center w-96 lg:w-auto">
+        <a href="{{url_for('index')}}">
+          <img src="{{url_for('static', filename='assets/MCAlogo.png')}}" class="w-16 sm:w-20" alt="" />
+        </a>
+        <div class="flex flex-col">
+          <h2 class="text-base sm:text-lg lg:text-xl text-darkmain font-extrabold w-fit leading-4 sm:leading-6">
+            <span class="hidden lg:flex">Mangalore Cultural Association</span>
+            <span class="flex lg:hidden">
+              Mangalore Cultural <br />
+              Association
+            </span>
+          </h2>
+          <span class="text-xs text-gray-700">Doha-Qatar Since 2008</span>
+        </div>
+      </div>
+    
+      <!-- menu bar active -->
+      <div class="hidden md:flex items-center m-3 bg-transparent rounded-2xl px-1 py-1 gap-5 lg:gap-8">
+        <a href="{{url_for('index')}}" class="flex flex-col gap-0.5 items-center">
+          <p class="text-xs font-medium text-lightmain lg:text-lg uppercase">Home</p>
+        </a>
+    
+        <div class="group flex flex-col gap-2 items-center relative z-50 cursor-pointer menu-container">
+          <div class="flex gap-2 items-center menu-btn">
+            <p class="text-xs font-medium text-lightmain group-hover:text-lightmain/90 lg:text-lg uppercase whitespace-nowrap">About MCA</p>
+            <img
+              src="{{url_for('static', filename='assets/blue-arrow.svg')}}"
+              class="w-3 rotate-90 group-hover:rotate-270 transform transition-transform duration-300 menu-arrow"
+              alt=""
+            />
+          </div>
+    
+          <!-- Dropdown Menu -->
+          <div class="menu-dropdown absolute top-full hidden group-hover:block bg-white shadow-lg rounded-md w-40 z-50">
+            <ul class="flex flex-col text-gray-700">
+              <li>
+                <a href="{{url_for('committee')}}" class="block px-4 py-2 hover:bg-light text-xs font-medium text-lightmain group-hover:text-lightmain/90 lg:text-base">Committee</a>
+              </li>
+              <li>
+                <a href="{{url_for('membership')}}" class="block px-4 py-2 hover:bg-light text-xs font-medium text-lightmain group-hover:text-lightmain/90 lg:text-base">Membership</a>
+              </li>
+              <li>
+                <a href="{{url_for('contact')}}" class="block px-4 py-2 hover:bg-light text-xs font-medium text-lightmain group-hover:text-lightmain/90 lg:text-base">Contact Us</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+        <a href="{{url_for('events')}}" class="flex flex-col gap-0.5 items-center">
+          <p class="text-xs font-medium text-lightmain lg:text-lg uppercase">Events</p>
+        </a>
+    
+        <a href="{{url_for('news')}}" class="flex flex-col gap-0.5 items-center">
+          <p class="text-xs font-medium text-lightmain hover:text-lightmain/90 lg:text-lg uppercase">News</p>
+        </a>
+    
+        <div class="group flex flex-col gap-2 items-center relative z-50 cursor-pointer menu-container">
+          <div class="menu-btn flex gap-2 items-center">
+            <p class="text-xs font-medium text-lightmain group-hover:text-lightmain/90 lg:text-lg uppercase">More</p>
+            <img
+              src="{{url_for('static', filename='assets/blue-arrow.svg')}}"
+              class="w-3 rotate-90 group-hover:rotate-270 transform transition-transform duration-300 menu-arrow"
+              alt=""
+            />
+          </div>
+    
+          <!-- Dropdown Menu -->
+          <div class="menu-dropdown absolute top-full hidden group-hover:block bg-white shadow-lg rounded-md w-40 z-50 -left-16">
+            <ul class="flex flex-col text-gray-700">
+              <li>
+                <a href="{{url_for('about')}}" class="block px-4 py-2 hover:bg-light text-xs font-medium text-lightmain group-hover:text-lightmain/90 lg:text-base">Community</a>
+              </li>
+              <li>
+                <a href="{{url_for('gallery')}}" class="block px-4 py-2 hover:bg-light text-xs font-medium text-lightmain group-hover:text-lightmain/90 lg:text-base">Gallery</a>
+              </li>
+              <li>
+                <a href="{{url_for('login')}}" class="block px-4 py-2 hover:bg-light text-xs font-medium text-lightmain group-hover:text-lightmain/90 lg:text-base">Login</a>
+              </li>
+              <li>
+                <a href="" class="block px-4 py-2 hover:bg-light text-xs font-medium text-lightmain group-hover:text-lightmain/90 lg:text-base">Profile</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Hamburger Button -->
+      <div class="flex bg-gradient-to-b from-light to-lightmain p-2 lg:p-3 rounded-full md:hidden">
+        <button id="menu-btn" class="flex flex-col justify-between w-4 h-4">
+          <span class="block w-4 h-0.5 bg-white transition-transform origin-center duration-500 ease-in-out"></span>
+          <span class="block w-4 h-0.5 bg-white transition-opacity duration-500"></span>
+          <span class="block w-4 h-0.5 bg-white transition-transform origin-center duration-500 ease-in-out"></span>
+        </button>
+      </div>
+    
+      <!-- hamburger Menu -->
+      <div id="menu" class="fixed top-14 sm:top-20 -right-4 h-[80vh] w-[280px] sm:w-[320px] lg:w-[400px] bg-darkmain bg-opacity-90 transform translate-x-full transition-transform duration-500 ease-in-out z-50 rounded-3xl flex justify-center overflow-hidden overflow-y-auto scroll-smooth">
+        <ul class="p-4 text-white flex flex-col gap-4">
+          <li>
+            <img src="{{url_for('static', filename='assets/MCAlogo.png')}}" class="w-20" alt="" />
+          </li>
+          <li>
+            <a href="{{url_for('index')}}" class="px-3 py-1 bg-light/40 hover:bg-light/60 rounded-lg">Home</a>
+          </li>
+          <li>
+            <a href="{{url_for('news')}}" class="px-3 py-1 bg-light/40 hover:bg-light/60 rounded-lg">News</a>
+          </li>
+          <li>
+            <a href="{{url_for('events')}}" class="px-3 py-1 bg-light/40 hover:bg-light/60 rounded-lg">Events</a>
+          </li>
+    
+          <!-- about -->
+          <li class="accordion-item flex w-full flex-col">
+            <!-- Accordion Header -->
+            <div class="flex items-center justify-between px-3 py-1.5 cursor-pointer">
+              <span class="accordion-header">About MCA</span>
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                class="ml-3 w-4 arrow transition-transform duration-300"
+                alt="arrow"
+              />
+            </div>
+    
+            <!-- Accordion Content -->
+            <div class="accordion-content hidden flex flex-col gap-2 px-2 py-2 transition-all duration-300 ease-in-out opacity-0 scale-y-0 transform origin-top">
+              <ul class="text-sm font-medium flex flex-col gap-3">
+                <li>
+                  <a href="{{url_for('committee')}}" class="px-2 py-1 bg-light/30 hover:bg-light/50 rounded-lg">Committee</a>
+                </li>
+                <li>
+                  <a href="{{url_for('membership')}}" class="px-2 py-1 bg-light/30 hover:bg-light/50 rounded-lg">Membership</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+    
+          <li>
+            <a href="{{url_for('artists')}}" class="px-3 py-1 bg-light/40 hover:bg-light/60 rounded-lg">Kalapuraskar</a>
+          </li>
+    
+          <!-- Community -->
+          <li class="accordion-item flex w-full flex-col">
+            <!-- Accordion Header -->
+            <div class="flex items-center justify-between px-3 py-1.5 cursor-pointer">
+              <span class="accordion-header">Community</span>
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                class="ml-3 w-4 arrow transition-transform duration-300"
+                alt="arrow"
+              />
+            </div>
+    
+            <!-- Accordion Content -->
+            <div class="accordion-content hidden flex flex-col gap-2 px-2 py-2 transition-all duration-300 ease-in-out opacity-0 scale-y-0 transform origin-top">
+              <ul class="text-sm font-medium flex flex-col gap-3">
+                <li>
+                  <a href="{{url_for('about')}}" class="px-2 py-1 bg-light/30 hover:bg-light/50 rounded-lg">Community</a>
+                </li>
+                <li>
+                  <a href="#" class="px-2 py-1 bg-light/30 hover:bg-light/50 rounded-lg">Sports</a>
+                </li>
+                <li>
+                  <a href="#" class="px-2 py-1 bg-light/30 hover:bg-light/50 rounded-lg">Wishes</a>
+                </li>
+                <li>
+                  <a href="{{url_for('gallery')}}" class="px-2 py-1 bg-light/30 hover:bg-light/50 rounded-lg">Gallery</a>
+                </li>
+                <li>
+                  <a href="#" class="px-2 py-1 bg-light/30 hover:bg-light/50 rounded-lg">Obituary</a>
+                </li>
+                <li>
+                  <a href="../pages/admin-pages/{{url_for('login')}}" class="px-2 py-1 bg-light/30 hover:bg-light/50 rounded-lg">Login</a>
+                </li>
+              </ul>
+            </div>
+          </li>
+    
+          <li class="pb-4">
+            <a href="{{url_for('contact')}}" class="px-3 py-1 bg-light/40 hover:bg-light/60 rounded-lg">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+  {% block content %} {% endblock %}
+
+
+<!-- mobile footer -->
+<footer class="sm:hidden flex justify-around items-center m-3 bg-darkmain/90 rounded-2xl px-1 py-2 sticky bottom-3 h-14">
+  <a href="{{url_for('news')}}" class="flex flex-col gap-0.5 items-center p-1 hover:bg-light/10 rounded-md w-10">
+    <img src="{{url_for('static', filename='assets/inbox.svg')}}" class="w-5" alt="" />
+    <p class="text-[10px] font-medium text-white">News</p>
+  </a>
+
+  <a href="{{url_for('events')}}" class="flex flex-col gap-0.5 items-center p-1 hover:bg-light/10 rounded-md w-10">
+    <img src="{{url_for('static', filename='assets/compass.svg')}}" class="w-5" alt="" />
+    <p class="text-[10px] font-medium text-white">Events</p>
+  </a>
+
+  <a href="{{url_for('index')}}" class="flex flex-col gap-0.5 items-center p-1 hover:bg-light/10 rounded-md">
+    <img src="{{url_for('static', filename='assets/MCAlogo.png')}}" class="h-20" alt="" />
+  </a>
+
+  <a href="{{url_for('committee')}}" class="flex flex-col gap-0.5 items-center p-1 hover:bg-light/10 rounded-md w-10">
+    <img src="{{url_for('static', filename='assets/list.svg')}}" class="w-5" alt="" />
+    <p class="text-[10px] font-medium text-white uppercase">Community</p>
+  </a>
+
+  <a href="" class="flex flex-col gap-0.5 items-center p-1 hover:bg-light/10 rounded-md w-10">
+    <img src="{{url_for('static', filename='assets/user.svg')}}" class="w-5" alt="" />
+    <p class="text-[10px] font-medium text-white">Profile</p>
+  </a>
+</footer>
+
+
+    
+    <script>
+
+      // Select elements
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
+
+      // Toggle menu visibility
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("translate-x-full"); // Slide menu in/out
+        menuBtn.classList.toggle("active"); // Toggle active state for hamburger button
+        menu.classList.toggle("right-2");
+      });
+
+      // Close the menu when clicking outside of it
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+          // If the click is outside the menu and hamburger button
+          menu.classList.add("translate-x-full"); // Hide the menu
+          menuBtn.classList.remove("active"); // Reset the hamburger button state
+          menu.classList.remove("right-2");
+        }
+      });
+
+      // Prevent clicks inside the menu from closing it
+      menu.addEventListener("click", (e) => {
+        e.stopPropagation(); // Stop the click event from propagating to the document
+      });
+
+      // Select all accordion header containers
+      const accordionHeaders = document.querySelectorAll(
+        ".accordion-item > div"
+      );
+
+      accordionHeaders.forEach((headerContainer) => {
+        headerContainer.addEventListener("click", () => {
+          // Find the accordion content (immediately after the header container)
+          const content = headerContainer.nextElementSibling;
+
+          // Find the arrow icon within the same header container
+          const arrow = headerContainer.querySelector(".arrow");
+
+          if (content.classList.contains("hidden")) {
+            // Expand the accordion content
+            content.classList.remove("hidden");
+            requestAnimationFrame(() => {
+              content.classList.add("opacity-100", "scale-y-100");
+              content.classList.remove("opacity-0", "scale-y-0");
+            });
+          } else {
+            // Collapse the accordion content
+            content.classList.add("opacity-0", "scale-y-0");
+            content.classList.remove("opacity-100", "scale-y-100");
+
+            // Wait for the animation to complete before hiding the content
+            content.addEventListener(
+              "transitionend",
+              () => {
+                content.classList.add("hidden");
+              },
+              { once: true }
+            );
+          }
+
+          // Rotate the arrow icon
+          arrow.classList.toggle("rotate-180");
+        });
+      });
+    </script>
+
+  </body>
+
+  
+</html>

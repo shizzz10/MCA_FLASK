@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="{{url_for('static', filename='assets/MCAlogo.png')}}" />
+    <link href="{{url_for('static', filename='styles/output.css')}}" rel="stylesheet" />
+    <title>MCA Login</title>
+  </head>
+  <body class="flex flex-col items-center justify-center bg-darkmain">
+    <main class="main flex flex-col gap-3 w-[96%] sm:w-[85%] lg:w-[700px]">
+      <a href="{{url_for('index')}}" class="h-12 b-bg-color text-white flex justify-center items-center px-2 py-2">
+        <img src="{{url_for('static', filename='assets/MCAlogo.png')}}" alt="qjs logo" class="w-32" />
+      </a>
+
+      <!-- Form with action and method for Flask -->
+      <form action="{{ url_for('login') }}" method="POST" class="flex flex-col gap-3 px-3 py-4 rounded-xl w-full">
+        <!-- CSRF Token for security -->
+        {{ form.hidden_tag() }}
+
+        <div class="flex flex-col gap-7 w-full">
+          <!-- Sign In Heading -->
+          <h3 class="text-lg sm:text-xl lg:text-2xl text-white font-semibold pl-1">Sign In</h3>
+
+          <div class="flex flex-col gap-4 sm:gap-5">
+            <!-- Username/Email Input -->
+            <div class="flex flex-col gap-0.5 w-full">
+              <input
+                required
+                name="username"
+                id="username"
+                type="text"
+                class="border w-full rounded-full text-sm px-2 sm:px-3 lg:px-4 py-3 sm:py-3.5 lg:py-4 bg-white focus:border-white shadow-sm sm:text-base lg:text-lg shadow-black/50 font-medium"
+                placeholder="Username"
+              />
+              <!-- Display errors for username -->
+              {% if form.username.errors %}
+                <span class="c-text-xs text-red-600 sm:text-xs pl-3">
+                  {{ form.username.errors[0] }}
+                </span>
+              {% endif %}
+            </div>
+
+            <!-- Password Input -->
+            <div class="flex flex-col gap-0.5">
+              <input
+                required
+                name="password"
+                id="pass"
+                type="password"
+                class="border w-full rounded-full text-sm px-2 sm:px-3 lg:px-4 py-3 sm:py-3.5 lg:py-4 bg-white focus:border-white shadow-sm sm:text-base lg:text-lg shadow-black/50 font-medium"
+                placeholder="Password"
+              />
+              <!-- Display errors for password -->
+              {% if form.password.errors %}
+                <span class="c-text-xs text-red-600 sm:text-xs pl-3">
+                  {{ form.password.errors[0] }}
+                </span>
+              {% endif %}
+            </div>
+          </div>
+
+          <!-- Sign In Button -->
+          <div class="flex flex-col gap-2">
+            <span class="text-xs text-slate-200 sm:text-sm pl-3 flex justify-center">
+              In case of Forget Password, <a href="#" class="text-white">Click here</a>
+            </span>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="px-4 text-center py-2 lg:py-3 m-btn-white text-base sm:text-lg lg:text-xl lg:font-bold rounded-full shadow-sm bg-white hover:bg-transparent border text-darkmain border-light hover:text-white shadow-black/15 font-semibold"
+            >
+              Sign In
+            </button>
+
+            <!-- Page Error Display -->
+            <div class="flex bg-white px-2 py-4 mt-4 rounded-xl {% if error %}block{% else %}hidden{% endif %}">
+              <div class="flex flex-col gap-1 justify-center w-full">
+                <span class="text-sm text-red-600 sm:text-xs pl-3 flex justify-center items-center font-medium">
+                  ERROR
+                </span>
+                <span class="c-text-xs text-red-600 sm:text-xs pl-3 flex justify-center items-center">
+                  {{ error }}
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </main>
+  </body>
+</html>

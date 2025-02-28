@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<main class="px-3 flex flex-col gap-2 mb-6 sm:mb-2 xl:max-w-[1280px] w-full">
+    <!-- heading -->
+    <div class="flex flex-col-reverse sm:flex-row justify-center items-center">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl text-darkmain font-extrabold">
+        Committee <br />
+      </h2>
+    </div>
+  
+    <!-- News -->
+    <div class="flex flex-col gap-3">
+      <div class="commite-members flex flex-col gap-12 lg:gap-20 px-4 mt-10">
+        <div class="committe-members-div">
+          <!-- text -->
+          <div class="text-div">
+            <h2 class="text-2xl lg:text-3xl text-default font-semibold text-center lg:text-start lg:w-[80%]">
+              2024 - Present
+            </h2>
+            <ul class="text-xl lg:text-2xl text-gray-500 text-start lg:text-start lg:w-[80%]">
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+            </ul>
+          </div>
+  
+          <!-- images -->
+          <div class="img-div">
+            <img
+              src="{{url_for('static', filename='assets/about us.jpg')}}"
+              class="w-[80%] lg:w-[80%] rounded-xl shadow-sm shadow-black/40"
+              alt=""
+            />
+          </div>
+        </div>
+  
+        <div class="committe-members-div">
+          <!-- text -->
+          <div class="text-div">
+            <h2 class="text-2xl lg:text-3xl text-default font-semibold text-center lg:text-start lg:w-[80%]">
+              2022 - 2024
+            </h2>
+            <ul class="text-xl lg:text-2xl text-gray-500 text-start lg:text-start lg:w-[80%]">
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+            </ul>
+          </div>
+  
+          <!-- images -->
+          <div class="img-div">
+            <img
+              src="{{url_for('static', filename='assets/about us.jpg')}}"
+              class="w-[80%] lg:w-[80%] rounded-xl shadow-sm shadow-black/40"
+              alt=""
+            />
+          </div>
+        </div>
+  
+        <div class="committe-members-div">
+          <!-- text -->
+          <div class="text-div">
+            <h2 class="text-2xl lg:text-3xl text-default font-semibold text-center lg:text-start lg:w-[80%]">
+              2020 - 2022
+            </h2>
+            <ul class="text-xl lg:text-2xl text-gray-500 text-start lg:text-start lg:w-[80%]">
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+            </ul>
+          </div>
+  
+          <!-- images -->
+          <div class="img-div">
+            <img
+              src="{{url_for('static', filename='assets/about us.jpg')}}"
+              class="w-[80%] lg:w-[80%] rounded-xl shadow-sm shadow-black/40"
+              alt=""
+            />
+          </div>
+        </div>
+  
+        <div class="committe-members-div">
+          <!-- text -->
+          <div class="text-div">
+            <h2 class="text-2xl lg:text-3xl text-default font-semibold text-center lg:text-start lg:w-[80%]">
+              2018 - 2020
+            </h2>
+            <ul class="text-xl lg:text-2xl text-gray-500 text-start lg:text-start lg:w-[80%]">
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+              <li>Eddie Neto</li>
+              <li>Noronha</li>
+              <li>Meena</li>
+            </ul>
+          </div>
+  
+          <!-- images -->
+          <div class="img-div">
+            <img
+              src="{{url_for('static', filename='assets/about us.jpg')}}"
+              class="w-[80%] lg:w-[80%] rounded-xl shadow-sm shadow-black/40"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+<script>
+     const parent = document.querySelector(".commite-members");
+      if (parent) {
+        const members = parent.querySelectorAll(".committe-members-div");
+
+        members.forEach((member, index) => {
+          // Remove all existing classes
+          member.className = "committe-members-div";
+
+          // Find text and image divs
+          const textDiv = member.querySelector(".text-div");
+          const imgDiv = member.querySelector(".img-div");
+
+          if (index % 2 === 0) {
+            // Odd index 
+            member.classList.add(
+              "flex",
+              "items-center",
+              "gap-6",
+              "lg:gap-2",
+              "justify-between",
+              "flex-col-reverse",
+              "lg:flex-row"
+            );
+
+            if (textDiv) {
+              textDiv.className =
+                "text-div flex flex-col gap-2 w-full lg:w-[48%] lg:justify-end lg:items-end items-center justify-center";
+            }
+            if (imgDiv) {
+              imgDiv.className =
+                "img-div flex flex-col gap-2 w-full lg:w-[48%] lg:justify-start lg:items-start justify-center items-center";
+            }
+          } else {
+            // Even index 
+            member.classList.add(
+              "flex",
+              "items-center",
+              "gap-2",
+              "justify-between",
+              "flex-col-reverse",
+              "lg:flex-row-reverse"
+            );
+
+            if (textDiv) {
+              textDiv.className =
+                "text-div flex flex-col gap-2 w-full lg:w-[48%] lg:justify-end lg:items-start items-center justify-center";
+            }
+            if (imgDiv) {
+              imgDiv.className =
+                "img-div flex flex-col gap-2 w-full lg:w-[48%] lg:justify-end lg:items-end justify-center items-center";
+            }
+          }
+        });
+      }
+</script>
+
+{% endblock %}

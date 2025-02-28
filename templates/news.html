@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+
+<main class="px-3 flex flex-col gap-2 mb-6 sm:mb-2 xl:max-w-[1280px] w-full">
+  <!-- heading -->
+  <div class="flex justify-center items-center">
+    <h2 class="text-4xl sm:text-5xl lg:text-6xl text-darkmain font-extrabold">
+      News <br />
+    </h2>
+  </div>
+
+  <!-- recently -->
+  <div class="flex flex-col gap-3">
+    <!-- head -->
+    <div class="flex">
+      <h4 class="text-xl font-semibold lg:text-2xl xl:text-3xl text-darkmain">
+        Recently
+      </h4>
+    </div>
+
+    <!-- News -->
+    <div class="flex flex-col gap-3">
+      <!-- cards -->
+      <div class="flex gap-4 lg::gap-6 sm:flex-wrap md:grid md:grid-cols-3 lg:grid-cols-4 justify-content-between button-slider overflow-hidden">
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">
+                Gladson Almedia
+              </p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">
+                Gladson Almedia
+              </p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">
+                Gladson Almedia
+              </p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">
+                Gladson Almedia
+              </p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+
+
+<main class="px-3 flex flex-col gap-2 mb-6 sm:mb-2 xl:max-w-[1280px] w-full text-darkmain">
+    <!-- heading -->
+    <div class="flex flex-col-reverse sm:flex-row justify-center items-center">
+      <h2 class="text-4xl sm:text-5xl lg:text-6xl text-darkmain font-extrabold">
+        Membership <br />
+      </h2>
+    </div>
+  
+    <!-- our story -->
+    <div class="flex flex-col gap-6 w-full">
+      <h2 class="text-lg font-medium sm:text-xl lg:text-2xl lg:font-semibold">Our Story</h2>
+  
+      <!-- 1st sec -->
+      <div class="flex flex-col gap-3">
+        <div class="flex items-center w-full text-center text-sm sm:text-base sm:font-medium lg:text-lg">
+          Mangalorean Konkans of Qatar came together in March
+          2008, to form the socio-cultural organization known as
+          MANGALORE CULTURAL ASSOCIATION (MCA) with the
+          following objectives;
+        </div>
+      </div>
+  
+      <!-- 2nd sec -->
+      <div class="flex flex-col gap-4">
+        <span class="text-xs sm:text-sm lg:text-base">Any Mangalorean Konkani speaking is eligible to join as a member provided he is proposed by a member and second by the Managing Committee. The Managing Committee may reject any
+            request for membership without giving any reason. The Life membership fee shall be as follows:</span>
+  
+        <div class="flex flex-col gap-3">
+          <ul class="list-decimal pl-4 text-xs sm:text-sm lg:text-base">
+            <li>Bachelor single membership : QR. 100</li>
+            <li>Family membership : QR. 200</li>
+          </ul>
+          
+          <button class="py-1 px-2 rounded-lg bg-darkmain hover:bg-darkmain/90 text-sm sm:text-base lg:text-lg w-fit text-white font-medium">
+            Become a Member
+          </button>
+        </div>
+  
+        <div class="flex flex-col gap-3">
+          <span class="text-xs sm:text-sm lg:text-base">A member shall cease to be a member of the association should the member's continuation with
+              the association is detrimental to the general interest of the association or other members. All such decisions by the committee shall be by a majority vote and at least supported by one of the elected member.
+              The Patron of Mangalore Cultural Association is Blessed Mother Theresa!!!</span>
+  
+          <span class="text-xs sm:text-sm lg:text-base font-medium">DIGITAL MEMBERSHIP CARD</span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

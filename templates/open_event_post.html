@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+
+<main class="px-3 flex flex-col gap-5 lg:gap-7 mb-6 sm:mb-2 xl:max-w-[1280px] w-full">
+  <!-- heading -->
+  <div class="flex justify-center items-center">
+    <h2 class="text-4xl sm:text-5xl lg:text-6xl text-darkmain font-extrabold">
+      Event<br />
+    </h2>
+  </div>
+
+  <!-- Events -->
+  <div class="flex flex-col gap-3">
+    <!-- cards -->
+    <div class="flex flex-col justify-center items-center lg:items-start lg:flex-row w-full lg:justify-between gap-6 lg:gap-1">
+      <!-- img -->
+      <div class="flex w-[90%] lg:w-[39%]">
+        <!-- Image Section -->
+        <img
+          src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+          class="w-full object-cover rounded-xl transition-all duration-300"
+          alt=""
+        />
+      </div>
+
+      <!-- text -->
+      <div class="flex flex-col gap-2 lg:w-[59%]">
+        <!-- title description -->
+        <div class="flex flex-col gap-0.5">
+          <!-- title -->
+          <p class="text-black font-semibold text-lg sm:text-xl leading-4 lg:leading-5">
+            Annual Event Announcement 2025
+          </p>
+          <!-- desc -->
+          <p class="text-gray-700 font-medium leading-4 lg:leading-5">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quos minus excepturi voluptatum asperiores placeat corporis! Commodi cum, consectetur ullam consequuntur non corrupti unde voluptas dignissimos hic quibusdam delectus itaque numquam tenetur aperiam eaque accusamus debitis odio culpa ducimus sed! Minus repudiandae asperiores, totam amet voluptates natus, officiis earum ut non quas, nostrum voluptatem id. Incidunt, corporis magni optio laborum quae perspiciatis iusto hic enim, accusantium libero dolores sit totam placeat non voluptates ea repellendus laudantium numquam, consequuntur animi! Rem, itaque. Aliquid tempore laudantium, accusamus maxime placeat, commodi doloremque adipisci aspernatur mollitia nulla dicta quod, vel saepe at ducimus cum rem.
+          </p>
+        </div>
+
+        <!-- additional info -->
+        <div class="flex flex-col gap-2 text-sm font-medium sm::text-base leading-4 text-gray-800">
+          <div class="flex gap-3 items-center">
+            <img src="{{url_for('static', filename='assets/clock-solid.svg')}}" class="w-4 sm:w-5" alt="">
+            <span>4:00 PM</span>
+          </div>
+
+          <div class="flex gap-3 items-center">
+            <img src="{{url_for('static', filename='assets/calendar-solid.svg')}}" class="w-4 sm:w-5" alt="">
+            <span>25/02/2025</span>
+          </div>
+
+          <div class="flex gap-3 items-center">
+            <img src="{{url_for('static', filename='assets/location-dot-solid (2).svg')}}" class="w-4 sm:w-5" alt="">
+            <span>Hamilton School</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+{% endblock %}

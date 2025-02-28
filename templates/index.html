@@ -1,0 +1,532 @@
+{% extends "base.html" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+
+
+<main class="px-3 flex flex-col gap-10 mb-6 sm:mb-2 xl:max-w-[1280px] w-full">
+    <!-- hero -->
+    <div class="div flex flex-col gap-4">
+      <div class="swiper-slide flex justify-center items-center text-center bg-white">
+        <img
+          src="{{url_for('static', filename='assets/DSC_0001.jpg')}}"
+          alt="Slide 1"
+          class="w-full h-[30vh] sm:h-[50vh] lg:h-h-[500px] xl:h-[550px] object-cover border border-light shadow-sm shadow-black/20 rounded-2xl"
+        />
+      </div>
+    </div>
+  
+    <!-- recently -->
+    <div class="flex flex-col gap-3">
+      <!-- head -->
+      <div class="flex justify-between items-center">
+        <h4 class="text-xl font-semibold lg:text-2xl xl:text-3xl text-darkmain">Updates</h4>
+        <a href="{{url_for('events')}}" class="text-darkmain hover:text-darkmain/90 pr-2 text-sm sm:text-base font-medium flex items-center">
+          Show all
+          <span class="pl-1 sm:pl-2">
+            <img src="{{url_for('static', filename='assets/blue-arrow.svg')}}" alt="" class="w-2 sm:w-2.5" />
+          </span>
+        </a>
+      </div>
+  
+      <!-- cards -->
+      <div class="flex gap-4 lg::gap-6 sm:flex-wrap md:grid md:grid-cols-3 lg:grid-cols-4 justify-content-between button-slider overflow-hidden">
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Gladson Almedia</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+  
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Gladson Almedia</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+  
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Gladson Almedia</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+  
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Gladson Almedia</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- MCA, Doha-Qatar -->
+    <div class="flex flex-col gap-2">
+      <div class="flex flex-col gap-2 items-start">
+        <h2 class="text-xl font-semibold lg:text-2xl xl:text-3xl text-darkmain">MCA, Doha-Qatar</h2>
+        <div class="flex w-full text-start text-sm sm:text-base sm:font-medium lg:text-lg text-gray-500">
+          Mangalorean Konkans of Qatar came together in March 2008, to form the socio-cultural organization known as MANGALORE CULTURAL ASSOCIATION (MCA) with the following objectives:
+          Bringing Mangalorean Konkani-speaking people together under the umbrella of Mangalore Cultural Association (MCA) to help each other. Maintain in touch with our culture by organizing cultural events such as by bringing Artists from India.
+        </div>
+      </div>
+      <div class="flex items-end justify-center gap-2">
+        <img src="{{url_for('static', filename='assets/about us.jpg')}}" class="w-[70%] sm:w-[60%] lg:w-[50%]" alt="">
+        <a href="{{url_for('about')}}" class="text-sm lg:text-base text-darkmain underline underline-offset-2">Read More</a>
+      </div>
+    </div>
+  
+    <!-- News -->
+    <div class="flex flex-col gap-3">
+      <!-- head -->
+      <div class="flex justify-between items-center">
+        <h4 class="text-xl font-semibold lg:text-2xl xl:text-3xl text-darkmain">News</h4>
+        <a href="{{url_for('news')}}" class="text-darkmain hover:text-darkmain/90 pr-2 text-sm sm:text-base font-medium flex items-center">
+          Show all
+          <span class="pl-1 sm:pl-2">
+            <img src="{{url_for('static', filename='assets/blue-arrow.svg')}}" alt="" class="w-2 sm:w-2.5" />
+          </span>
+        </a>
+      </div>
+  
+      <!-- cards -->
+      <div class="flex gap-4 lg::gap-6 sm:flex-wrap md:grid md:grid-cols-3 lg:grid-cols-4 justify-content-between button-slider overflow-hidden">
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Gladson Almedia</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+  
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Gladson Almedia</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+  
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Gladson Almedia</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+  
+        <!-- card -->
+        <div class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Gladson Almedia</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4">Elected New President</span>
+            </div>
+            <!-- Read More -->
+            <a href="{{url_for('open_news_post')}}" class="text-sm text-gray-200 md:text-base leading-3 mt-auto flex gap-1 group/arrow items-center">
+              Read More
+              <img
+                src="{{url_for('static', filename='assets/arrow.svg')}}"
+                alt=""
+                class="w-3 sm:w-4 transition-transform duration-500 ease-in-out transform group-hover/arrow:ml-0.5 rotate-270"
+              />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- Events -->
+    <div class="flex flex-col gap-3">
+      <!-- head -->
+      <div class="flex justify-between items-center">
+        <h4 class="text-xl font-semibold lg:text-2xl xl:text-3xl text-darkmain">Events</h4>
+        <a href="{{url_for('events')}}" class="text-darkmain hover:text-darkmain/90 pr-2 text-sm sm:text-base font-medium flex items-center">
+          Show all
+          <span class="pl-1 sm:pl-2">
+            <img src="{{url_for('static', filename='assets/blue-arrow.svg')}}" alt="" class="w-2 sm:w-2.5" />
+          </span>
+        </a>
+      </div>
+  
+      <!-- cards -->
+      <div class="flex gap-4 lg::gap-6 sm:flex-wrap md:grid md:grid-cols-3 lg:grid-cols-4 justify-content-between button-slider overflow-hidden">
+        <!-- card -->
+        <a href="{{url_for('open_event_post')}}" class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Annual Event Announcement 2025</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4"></span>
+            </div>
+            <div class="flex justify-between items-end mt-auto">
+              <!-- additional info -->
+              <div class="flex flex-col gap-0.5 text-xs lg:text-sm leading-4 text-gray-300">
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/clock-gray.svg')}}" class="w-3" alt="">
+                  <span>4:00 PM</span>
+                </div>
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/calendar-gray.svg')}}" class="w-3" alt="">
+                  <span>25/02/2025</span>
+                </div>
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/location-gray.svg')}}" class="w-3" alt="">
+                  <span>Hamilton School</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+  
+        <!-- card -->
+        <a href="{{url_for('open_event_post')}}" class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Annual Event Announcement 2025</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4"></span>
+            </div>
+            <div class="flex justify-between items-end mt-auto">
+              <!-- additional info -->
+              <div class="flex flex-col gap-0.5 text-xs lg:text-sm leading-4 text-gray-300">
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/clock-gray.svg')}}" class="w-3" alt="">
+                  <span>4:00 PM</span>
+                </div>
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/calendar-gray.svg')}}" class="w-3" alt="">
+                  <span>25/02/2025</span>
+                </div>
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/location-gray.svg')}}" class="w-3" alt="">
+                  <span>Hamilton School</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+  
+        <!-- card -->
+        <a href="{{url_for('open_event_post')}}" class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Annual Event Announcement 2025</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4"></span>
+            </div>
+            <div class="flex justify-between items-end mt-auto">
+              <!-- additional info -->
+              <div class="flex flex-col gap-0.5 text-xs lg:text-sm leading-4 text-gray-300">
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/clock-gray.svg')}}" class="w-3" alt="">
+                  <span>4:00 PM</span>
+                </div>
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/calendar-gray.svg')}}" class="w-3" alt="">
+                  <span>25/02/2025</span>
+                </div>
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/location-gray.svg')}}" class="w-3" alt="">
+                  <span>Hamilton School</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+  
+        <!-- card -->
+        <a href="{{url_for('open_event_post')}}" class="flex flex-col w-60 aspect-[7/6] sm:aspect-[7/7] md:w-[31%] lg:w-[23.8%] lg:aspect-[5/4] rounded-2xl overflow-hidden group shrink-0 relative min-h-[100%]">
+          <!-- Image Section -->
+          <img
+            src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+            class="h-[58%] w-full object-cover rounded-br-4xl group-hover:rounded-br-sm transition-all duration-300"
+            alt=""
+          />
+          <!-- Content Section -->
+          <div class="absolute bottom-0 h-[47%] flex flex-col gap-0.5 px-3 py-1.5 md:py-2 lg:py-2 xl:py-2 bg-darkmain rounded-tl-xl group-hover:rounded-tl-sm rounded-tr-4xl group-hover:rounded-tr-lg rounded-bl-xl group-hover:rounded-bl-none rounded-br-4xl group-hover:rounded-br-none transition-all duration-300 w-full">
+            <!-- Headline -->
+            <div class="flex flex-col gap-0 sm:gap-0.5 lg:gap-1">
+              <p class="text-white font-medium sm:text-lg leading-4 lg:leading-5">Annual Event Announcement 2025</p>
+              <span class="text-gray-200 text-sm lg:text-base leading-3 lg:leading-4"></span>
+            </div>
+            <div class="flex justify-between items-end mt-auto">
+              <!-- additional info -->
+              <div class="flex flex-col gap-0.5 text-xs lg:text-sm leading-4 text-gray-300">
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/clock-gray.svg')}}" class="w-3" alt="">
+                  <span>4:00 PM</span>
+                </div>
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/calendar-gray.svg')}}" class="w-3" alt="">
+                  <span>25/02/2025</span>
+                </div>
+                <div class="flex gap-2">
+                  <img src="{{url_for('static', filename='assets/location-gray.svg')}}" class="w-3" alt="">
+                  <span>Hamilton School</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  
+    <!-- Kalapraskar -->
+    <div class="flex flex-col gap-3">
+      <!-- head -->
+      <div class="flex justify-between items-center">
+        <h4 class="text-xl font-semibold lg:text-2xl xl:text-3xl text-darkmain">Kalapraskar</h4>
+        <a href="{{url_for('artists')}}" class="text-darkmain hover:text-darkmain/90 pr-2 text-sm sm:text-base font-medium flex items-center">
+          Show all
+          <span class="pl-1 sm:pl-2">
+            <img src="{{url_for('static', filename='assets/blue-arrow.svg')}}" alt="" class="w-2 sm:w-2.5" />
+          </span>
+        </a>
+      </div>
+  
+      <!-- Profiles -->
+      <div class="flex gap-2 sm:gap-4 xl:gap-4 sm:flex-wrap button-slider overflow-hidden">
+        <!-- Profile card -->
+        <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+          <img
+            src="{{url_for('static', filename='assets/artist3.jpg')}}"
+            class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+            alt=""
+          />
+          <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">Meena Rebimbus</h6>
+        </a>
+  
+        <!-- Profile card -->
+        <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+          <img
+            src="{{url_for('static', filename='assets/artist1.jpg')}}"
+            class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+            alt=""
+          />
+          <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">Eddie Netto</h6>
+        </a>
+  
+        <!-- Profile card -->
+        <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+          <img
+            src="{{url_for('static', filename='assets/artist2.jpg')}}"
+            class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+            alt=""
+          />
+          <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">Alwyn Noronha</h6>
+        </a>
+  
+        <!-- Profile card -->
+        <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+          <img
+            src="{{url_for('static', filename='assets/artist3.jpg')}}"
+            class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+            alt=""
+          />
+          <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">Meena Rebimbus</h6>
+        </a>
+  
+        <!-- Profile card -->
+        <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+          <img
+            src="{{url_for('static', filename='assets/artist1.jpg')}}"
+            class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+            alt=""
+          />
+          <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">Eddie Netto</h6>
+        </a>
+  
+        <!-- Profile card -->
+        <a href="{{url_for('artists')}}" class="flex flex-col text-sm p-2 hover:bg-light/20 hover:rounded-2xl w-28 sm:w-36 xl:w-40 shrink-0">
+          <img
+            src="{{url_for('static', filename='assets/artist2.jpg')}}"
+            class="rounded-full h-24 w-24 sm:h-32 sm:w-32 xl:w-36 xl:h-36 object-cover object-center"
+            alt=""
+          />
+          <h6 class="text-sm lg:text-base xl:text-lg xl:font-semibold pl-0.5 font-medium">Alwyn Noronha</h6>
+        </a>
+      </div>
+    </div>
+  </main>
+
+<!-- desktop footer -->
+<footer
+  class="hidden sm:flex justify-around items-center bg-darkmain rounded-t-2xl px-1 py-4 mt-auto w-full xl:max-w-[1280px]"
+>
+  <div id="copyright" class="text-gray-300 text-base font-normal">
+    © 2025 All Rights Reserved. <span class="">Developed by </span>
+    <a
+      target="_blank"
+      href="https://bizzds.com/"
+      class="text-white hover:text-gray-100"
+      >BizzDs</a
+    >
+  </div>
+</footer>
+{% endblock %}

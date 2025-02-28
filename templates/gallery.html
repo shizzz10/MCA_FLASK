@@ -1,0 +1,175 @@
+{% extends "base.html" %}
+{% block title %} Index {% endblock %}
+{% block content %}
+
+
+<main class="px-3 flex flex-col gap-2 mb-6 sm:mb-2 xl:max-w-[1280px] w-full mx-auto">
+  <!-- Gallery Grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-1.5">
+    <!-- Image 1 -->
+    <div class="group relative overflow-hidden rounded-lg shadow-sm shadow-black/10">
+      <img
+        src="{{url_for('static', filename='assets/DSC_0001.jpeg')}}"
+        alt=""
+        class="w-full sm:h-60 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+        onclick="openPopup(this)"
+      />
+    </div>
+
+    <!-- Image 2 -->
+    <div class="group relative overflow-hidden rounded-lg shadow-sm shadow-black/10">
+      <img
+        src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+        alt=""
+        class="w-full sm:h-60 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+        onclick="openPopup(this)"
+      />
+    </div>
+
+    <!-- Image 3 -->
+    <div class="group relative overflow-hidden rounded-lg shadow-sm shadow-black/10">
+      <img
+        src="{{url_for('static', filename='assets/DSC_0282.jpg')}}"
+        alt=""
+        class="w-full sm:h-60 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+        onclick="openPopup(this)"
+      />
+    </div>
+
+    <!-- Image 4 -->
+    <div class="group relative overflow-hidden rounded-lg shadow-sm shadow-black/10">
+      <img
+        src="{{url_for('static', filename='assets/IMG-20220703-WA0011.jpg')}}"
+        alt=""
+        class="w-full sm:h-60 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+        onclick="openPopup(this)"
+      />
+    </div>
+
+    <!-- Image 5 -->
+    <div class="group relative overflow-hidden rounded-lg shadow-sm shadow-black/10">
+      <img
+        src="{{url_for('static', filename='assets/artist2.jpg')}}"
+        alt=""
+        class="w-full sm:h-60 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+        onclick="openPopup(this)"
+      />
+    </div>
+
+    <!-- Image 6 -->
+    <div class="group relative overflow-hidden rounded-lg shadow-sm shadow-black/10">
+      <img
+        src="{{url_for('static', filename='assets/DSC_0282.jpg')}}"
+        alt=""
+        class="w-full sm:h-60 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+        onclick="openPopup(this)"
+      />
+    </div>
+
+    <!-- Image 7 -->
+    <div class="group relative overflow-hidden rounded-lg shadow-sm shadow-black/10">
+      <img
+        src="{{url_for('static', filename='assets/artist2.jpg')}}"
+        alt=""
+        class="w-full sm:h-60 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+        onclick="openPopup(this)"
+      />
+    </div>
+
+    <!-- Image 8 -->
+    <div class="group relative overflow-hidden rounded-lg shadow-sm shadow-black/10">
+      <img
+        src="{{url_for('static', filename='assets/DSC_0001.jpeg')}}"
+        alt=""
+        class="w-full sm:h-60 lg:sm:h-60 lg:h-64 object-cover transition-transform duration-300 group-hover:scale-105 cursor-pointer"
+        onclick="openPopup(this)"
+      />
+    </div>
+  </div>
+
+  <!-- Popup Overlay -->
+  <div id="popupOverlay" class="hidden fixed inset-0 bg-black/95 z-50 flex justify-center items-center p-4">
+    <!-- Close Button -->
+    <button
+      onclick="closePopup()"
+      class="absolute top-3 right-3 text-white text-3xl hover:text-gray-300 h-7 w-7 bg-red-500/80 rounded-full flex justify-center items-center text-center z-10"
+    >
+      ×
+    </button>
+
+    <!-- Previous Button -->
+    <button
+      onclick="showPreviousImage()"
+      class="absolute left-0 md:left-2 top-1/2 transform -translate-y-1/2 bg-white/30 text-white text-2xl w-10 h-10 md:w-14 md:h-14 rounded-full hover:bg-white/50 flex justify-center items-center text-center z-10"
+    >
+      ❮
+    </button>
+
+    <!-- Next Button -->
+    <button
+      onclick="showNextImage()"
+      class="absolute right-0 md:right-2 top-1/2 transform -translate-y-1/2 bg-white/30 text-white text-2xl w-10 h-10 md:w-14 md:h-14 rounded-full hover:bg-white/50 flex justify-center items-center text-center z-10"
+    >
+      ❯
+    </button>
+
+    <div class="relative w-full max-w-4xl max-h-[98vh] m-4 flex items-center justify-center">
+      <!-- Popup Image -->
+      <img
+        id="popupImage"
+        src=""
+        alt="Popup Image"
+        class="w-auto max-h-[95vh]"
+      />
+    </div>
+  </div>
+</main>
+
+<script>
+    // gallery popup
+
+    let currentImageElement = null;
+
+    // Function to open the popup
+    function openPopup(imageElement) {
+      const popupOverlay = document.getElementById("popupOverlay");
+      const popupImage = document.getElementById("popupImage");
+      currentImageElement = imageElement;
+      popupImage.src = imageElement.src;
+      popupOverlay.classList.remove("hidden");
+    }
+
+    // Function to close the popup
+    function closePopup() {
+      const popupOverlay = document.getElementById("popupOverlay");
+      popupOverlay.classList.add("hidden");
+    }
+
+    // Function to show the previous image
+    function showPreviousImage() {
+      const previousImageElement =
+        currentImageElement.parentElement.previousElementSibling?.querySelector(
+          "img"
+        );
+      if (previousImageElement) {
+        currentImageElement = previousImageElement;
+        document.getElementById("popupImage").src = previousImageElement.src;
+      }
+    }
+
+    // Function to show the next image
+    function showNextImage() {
+      const nextImageElement =
+        currentImageElement.parentElement.nextElementSibling?.querySelector(
+          "img"
+        );
+      if (nextImageElement) {
+        currentImageElement = nextImageElement;
+        document.getElementById("popupImage").src = nextImageElement.src;
+      }
+    }
+
+ 
+  </script>
+
+{% endblock %}

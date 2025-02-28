@@ -1,0 +1,70 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+
+
+
+/* npx @tailwindcss/cli -i ./src/styles/input.css -o ./src/styles/output.css --watch */
+
+@theme {
+    --color-darkmain: #1f2755;
+    --color-lightmain: #273673;
+    --color-light: #bec4da;
+    --w-76: "256px";
+    --font-roboto: "Poppins", serif; 
+  }
+
+
+body{
+  font-family: "Poppins", serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+      /* Active State (Cross Icon) */
+      #menu-btn.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      #menu-btn.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      #menu-btn.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+/* Custom scrollbar for #menu */
+.c-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Thin scrollbar */
+}
+
+.c-scrollbar::-webkit-scrollbar-track {
+  background: #f5f6fa1a;
+  border-radius: 10px;
+  margin: 15px 2px;
+}
+
+.c-scrollbar::-webkit-scrollbar-thumb {
+  background: #bec4da66; 
+  border-radius: 10px;
+}
+
+.c-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #bec4da99; 
+}
+
+
+.button-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.button-slider::-webkit-scrollbar {
+  display: none; 
+} 
+
+.c-underline{
+    text-decoration-skip-ink: none;
+}
