@@ -1,0 +1,99 @@
+{% extends "admin_pages/base_admin.html" %}
+{% block title %} Admin Committee {% endblock %}
+{% block content %}
+
+
+  
+      <!-- Content -->
+      <div class="flex flex-col gap-8 mt-6 mb-6 sm:mb-2 w-full xl:max-w-[1200px] overflow-hidden">
+        <!-- heading -->
+        <div class="flex items-center gap-6">
+          <h2 class="text-2xl sm:text-3xl lg:text-3xl text-darkmain font-bold">
+            Add Committee
+          </h2>
+        </div>
+  
+        <!-- Committee form -->
+        <div class="flex flex-col gap-6 w-full">
+          <!-- form -->
+          <form class="flex flex-col gap-6 mt-6 mb-6 sm:mb-2 overflow-hidden border border-light p-5 sm:p-6 lg:p-8 w-[100%] sm:w-[100%] lg:w-[100%] rounded-2xl bg-white shadow-md shadow-black/40 transition-all duration-200 ease-in-out hover:shadow-black/20">
+            <!-- heading -->
+  
+            <!-- form fields -->
+            <div class="flex flex-col gap-4">
+              <!-- upload image -->
+              <div class="border-2 border-light border-dashed drag-drop-container bg-[#DBE2EF] rounded-3xl p-3 sm:p-6 lg:p-10 hover:bg-[#DBE2EF]/70 flex justify-center items-center">
+                <label for="image_file">
+                  <div class="flex flex-col items-center cursor-pointer">
+                    <input
+                      class="form-control rounded-full border border-light file:bg-darkmain file:hover:bg-darkmain/20 file:text-white file:border-0 file:rounded-full w-56 sm:w-60 lg:w-64 file:px-3 file:py-1 file:sm:px-4 file:lg:px-4 file:mr-1 file:sm:mr-2 file:lg:mr-3 file:text-sm file:sm:text-sm file:lg:text-base text-stone-600"
+                      id="image_file"
+                      name="image_file"
+                      type="file"
+                    />
+                    <p class="c-text-xs sm:text-xs lg:text-sm text-red-500 mt-2">
+                      <span class="font-bold">Note: </span>
+                      Upload Group Image
+                    </p>
+                  </div>
+                </label>
+              </div>
+  
+              <!-- Title -->
+              <div class="flex flex-col gap-1">
+                <label for="short_desc" class="text-gray-700 font-medium lg:text-lg">
+                  Title
+                </label>
+                <input
+                  id="short_desc"
+                  type="text"
+                  name=""
+                  class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+                  placeholder="Title"
+                />
+                <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+              </div>
+  
+              <!-- Members List -->
+              <div class="flex flex-col gap-1">
+                <label for="content" class="text-gray-700 font-medium lg:text-lg">
+                  Members List
+                </label>
+                <textarea
+                  name=""
+                  id="content"
+                  rows="4"
+                  class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+                  placeholder="Please Write Members List"
+                ></textarea>
+                <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+              </div>
+  
+              <!-- Year -->
+              <div class="flex flex-col gap-1">
+                <label for="Year" class="text-gray-700 font-medium lg:text-lg">
+                  Year
+                </label>
+                <select
+                  id="Year"
+                  class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain bg-white"
+                >
+                  <option value="" selected disabled>Select Year</option>
+                  <option value="2024/2025">2025/2026</option>
+                  <option value="2024/2025">2026/2027</option>
+                  <option value="2024/2025">2027/2028</option>
+                </select>
+                <span class="text-xs lg:text-sm text-red-500 hidden">Error Here</span>
+              </div>
+            </div>
+  
+            <button class="w-full bg-darkmain border border-darkmain hover:bg-white hover:text-darkmain font-medium lg:font-semibold text-white rounded-2xl p-1.5 lg:p-2 text-lg lg:text-xl">
+              Add Committee
+            </button>
+          </form>
+        </div>
+      </div>
+
+
+
+{% endblock %}

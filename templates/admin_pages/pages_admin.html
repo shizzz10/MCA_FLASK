@@ -1,0 +1,106 @@
+{% extends "admin_pages/base_admin.html" %}
+{% block title %} Admin Pages {% endblock %}
+{% block content %}
+
+
+
+  
+      <!-- Content -->
+      <div class="flex flex-col gap-8 mt-6 mb-6 sm:mb-2 w-full xl:max-w-[1200px] overflow-hidden">
+        <!-- heading -->
+        <div class="flex items-center gap-6">
+          <h2 class="text-2xl sm:text-3xl lg:text-3xl text-darkmain font-bold">
+            Pages
+          </h2>
+        </div>
+  
+        <!-- Pages -->
+        <div class="flex flex-col gap-6 w-full">
+          <div class="flex flex-col button-slider overflow-hidden">
+            <table class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[400px] sm:w-full">
+              <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-[60%_20%_20%] gap-1 sm:gap-4 lg:gap-6 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base">
+                  <th class="">Pages</th>
+                  <th class="">SEO</th>
+                  <th class="">Content</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-600 text-sm font-light">
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-[60%_20%_20%] gap-1 sm:gap-4 lg:gap-6 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class="">
+                    <span class="font-medium lg:text-lg lg:font-semibold">Home</span>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-[60%_20%_20%] gap-1 sm:gap-4 lg:gap-6 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class="">
+                    <span class="font-medium lg:text-lg lg:font-semibold">News</span>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-[60%_20%_20%] gap-1 sm:gap-4 lg:gap-6 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class="">
+                    <span class="font-medium lg:text-lg lg:font-semibold">Events</span>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-[60%_20%_20%] gap-1 sm:gap-4 lg:gap-6 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class="">
+                    <span class="font-medium lg:text-lg lg:font-semibold">Committee</span>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-[60%_20%_20%] gap-1 sm:gap-4 lg:gap-6 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class="">
+                    <span class="font-medium lg:text-lg lg:font-semibold">About Us</span>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-[60%_20%_20%] gap-1 sm:gap-4 lg:gap-6 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class="">
+                    <span class="font-medium lg:text-lg lg:font-semibold">Contact Us</span>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                  <td class="">
+                    <a href="" class="font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Edit</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+{% endblock %}

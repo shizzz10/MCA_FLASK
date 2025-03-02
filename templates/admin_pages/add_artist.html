@@ -1,98 +1,362 @@
-{% extends "admin_pages/base_admin.html" %}
-{% block title %} Index {% endblock %}
-{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      href="{{ url_for('static', filename='assets/MCAlogo.png') }}"
+    />
 
-    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-md">
-        <h2 class="text-2xl font-bold text-center text-gray-700">Add an Artist</h2>
+    <link
+      href="{{ url_for('static', filename='styles/output.css') }}"
+      rel="stylesheet"
+    />
 
-        <form action="{{ url_for('login') }}" method="POST" class="space-y-4">
-            <!-- Email input -->
+    <title>Add Artist</title>
+  </head>
+  <body class="xl:flex xl:flex-col xl:items-center bg-[#f0eeee]">
+    <header
+      class="flex justify-between items-center gap-2 px-3 py-0.5 bg-lightmain w-full sticky lg:relative top-0 z-20 h-14 lg:h-16"
+    >
+      <div class="flex gap-2 items-center">
+        <!-- Hamburger Button -->
+        <div
+          class="flex bg-gradient-to-b from-light to-lightmain p-2 lg:p-3 rounded-full lg:hidden"
+        >
+          <button id="menu-btn" class="flex flex-col justify-between w-4 h-4">
+            <span
+              class="block w-4 h-0.5 bg-white transition-transform origin-center duration-500 ease-in-out"
+            ></span>
+            <span
+              class="block w-4 h-0.5 bg-white transition-opacity duration-500"
+            ></span>
+            <span
+              class="block w-4 h-0.5 bg-white transition-transform origin-center duration-500 ease-in-out"
+            ></span>
+          </button>
+        </div>
 
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700">Blog Title</label>
-                <input type="text" id="username" name="username" required
-                    class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
-                    placeholder="Enter the required data">
+        <!-- logo  -->
+        <a href="{{ url_for('admin') }}" class="flex">
+          <img
+            src="{{ url_for('static', filename='assets/MCAlogo.png') }}"
+            class="w-12 sm:w-14"
+            alt=""
+          />
+        </a>
+      </div>
 
-            </div>
+      <!-- Menu -->
+      <div
+        id="menu"
+        class="fixed top-14 -left-14 h-[100vh] bg-opacity-90 transform -translate-x-full transition-transform duration-500 ease-in-out z-50 flex justify-center overflow-hidden scroll-smooth"
+      >
+        <!-- sidebar -->
+        <div
+          class="flex flex-col w-80 border-r border-[#D2DAFF] bg-[#DBE2EF] sticky top-0 h-[100vh] shrink-0 overflow-y-scroll"
+        >
+          <a
+            href="{{ url_for('admin') }}"
+            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20{% endif %}"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/grip-vertical-solid.svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>Dashboard</span>
+          </a>
 
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700">Publishing Date</label>
-                <input type="date" id="username" name="username"
-                    class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
-                    >
+          <a
+            href="{{ url_for('committee_admin') }}"
+            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'committee_admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20{% endif %}"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/users-solid.svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>Committee members</span>
+          </a>
 
-            </div>
+          <a
+            href="#"
+            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'categories_admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20{% endif %}"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/layer-group-solid.svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>Categories</span>
+          </a>
 
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700">Content</label>
-                <textarea name="blog_content" id="blog_content" class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"></textarea>
+          <a
+            href="{{ url_for('artists_admin') }}"
+            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'artists_admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20{% endif %}"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/microphone-lines-solid blue.svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>Artists</span>
+          </a>
 
+          <a
+            href="{{ url_for('pages_admin') }}"
+            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'pages_admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20{% endif %}"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/file-pen-solid.svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>Edit Pages</span>
+          </a>
 
-            </div>
+          <a
+            href="{{ url_for('contact_dev') }}"
+            class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'contact_dev' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20{% endif %}"
+          >
+            <img
+              src="{{ url_for('static', filename='assets/comment-dots-solid.svg') }}"
+              class="h-6"
+              alt=""
+            />
+            <span>Contact developers</span>
+          </a>
+        </div>
+      </div>
 
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700">Short Desc(Excerpt)</label>
-                <input type="text" id="username" name="username" required
-                    class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
-                    placeholder="Enter the required data">
+      <div class="flex">
+        <a
+          href="#"
+          class="py-1 sm:py-1 lg:py-1.5 px-2.5 sm:px-3 lg:px-4 mt-auto flex justify-center items-center gap-2 text-base lg:text-lg font-semibold text-darkmain bg-gray-300 hover:bg-gray-300/50 rounded-xl"
+          >Log Out
+          <img
+            src="{{ url_for('static', filename='assets/right-from-bracket-solid.svg') }}"
+            class="h-5"
+            alt=""
+        /></a>
+      </div>
+    </header>
 
-            </div>
+    <main
+      class="px-2 lg:px-0 lg:pr-3 flex flex-col gap-8 items-center xl:max-w-[1200px] w-full"
+    >
+      <!-- form  -->
+      <form
+        action="{{ url_for('add_blog') }}"
+        method="POST"
+        class="flex flex-col gap-6 mt-6 mb-6 sm:mb-2 overflow-hidden border border-light p-5 sm:p-6 lg:p-8 w-[94%] sm:w-[90%] lg:w-[80%] rounded-2xl bg-white shadow-md shadow-black/40 transition-all duration-200 ease-in-out hover:shadow-black/20"
+      >
+        <!-- heading  -->
+        <div class="flex items-start">
+          <h2 class="text-2xl sm:text-3xl lg:text-3xl text-darkmain font-bold">
+            Add Artist<br />
+          </h2>
+        </div>
 
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700">Meta Title</label>
-                <input type="text" id="username" name="username" required
-                    class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
-                    placeholder="Enter the required data">
+        <!-- form fields  -->
+        <div class="flex flex-col gap-4">
+          <!-- Blog Title  -->
+          <div class="flex flex-col gap-1">
+            <label
+              for="blog_title"
+              class="text-gray-700 font-medium lg:text-lg"
+            >
+              Blog Title
+            </label>
+            <input
+              id="blog_title"
+              type="text"
+              name="blog_title"
+              class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+              placeholder="Enter the required Data"
+            />
+            <span class="text-xs lg:text-sm text-red-500 hidden"
+              >Error Here</span
+            >
+          </div>
 
-            </div>
+          <!-- Publishing Date  -->
+          <div class="flex flex-col gap-1">
+            <label
+              for="publish_date"
+              class="text-gray-700 font-medium lg:text-lg"
+            >
+              Publishing Date
+            </label>
+            <input
+              id="publish_date"
+              name="publish_date"
+              type="date"
+              class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+              placeholder=""
+            />
+            <span class="text-xs lg:text-sm text-red-500 hidden"
+              >Error Here</span
+            >
+          </div>
 
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700">Meta Desc</label>
-                <textarea name="blog_content" id="blog_content" class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"></textarea>
+          <!-- Content  -->
+          <div class="flex flex-col gap-1">
+            <label for="content" class="text-gray-700 font-medium lg:text-lg">
+              Content
+            </label>
+            <textarea
+              name="content"
+              id="content"
+              rows="4"
+              class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+              placeholder="Please write the content"
+            ></textarea>
+            <span class="text-xs lg:text-sm text-red-500 hidden"
+              >Error Here</span
+            >
+          </div>
 
+          <!-- Short Desc(Excerpt) -->
+          <div class="flex flex-col gap-1">
+            <label
+              for="short_desc"
+              class="text-gray-700 font-medium lg:text-lg"
+            >
+              Short Desc(Excerpt)
+            </label>
+            <input
+              id="short_desc"
+              type="text"
+              name="short_desc"
+              class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+              placeholder="Please write a short Description"
+            />
+            <span class="text-xs lg:text-sm text-red-500 hidden"
+              >Error Here</span
+            >
+          </div>
 
-            </div>
-            <div>
-                <label for="status" class="block text-sm font-medium text-gray-700">Status</label>
-                <select id="status" name="status" required
-                    class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400">
-                    <option value="" disabled selected>Select Status</option>
-                    <option value="active">Draft</option>
-                    <option value="inactive">Published</option>
-                    <option value="pending">Archived</option>
-                </select>
-            </div>
-            
-            <div>
-                <label for="username" class="block text-sm font-medium text-gray-700">Categories</label>
-                <input type="text" id="username" name="username" required
-                    class="w-full mt-1 px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-blue-400"
-                    placeholder="Enter the required data">
+          <!-- Meta Title -->
+          <div class="flex flex-col gap-1">
+            <label
+              for="meta_title"
+              class="text-gray-700 font-medium lg:text-lg"
+            >
+              Meta Title
+            </label>
+            <input
+              id="meta_title"
+              type="text"
+              name="meta_title"
+              class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+              placeholder="Please write Meta title"
+            />
+            <span class="text-xs lg:text-sm text-red-500 hidden"
+              >Error Here</span
+            >
+          </div>
 
-            </div>
+          <!-- Meta Desc  -->
+          <div class="flex flex-col gap-1">
+            <label for="meta_desc" class="text-gray-700 font-medium lg:text-lg">
+              Meta Desc
+            </label>
+            <textarea
+              name="meta_desc"
+              id="meta_desc"
+              rows="3"
+              class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+              placeholder="Please write Meta Description Here"
+            ></textarea>
+            <span class="text-xs lg:text-sm text-red-500 hidden"
+              >Error Here</span
+            >
+          </div>
 
-            <!-- Login button -->
-            <div>
-                <button type="submit"
-                    class="w-full py-2 px-4 bg-blue-500 text-white rounded-md shadow hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400">
-                    submit
-                </button>
-            </div>
+          <!-- Status -->
+          <div class="flex flex-col gap-1">
+            <label for="status" class="text-gray-700 font-medium lg:text-lg">
+              Status
+            </label>
+            <select
+              id="status"
+              name="status"
+              class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain bg-white"
+            >
+              <option value="" selected disabled>Select Status</option>
+              <option value="active">Active</option>
+              <option value="inactive">Inactive</option>
+            </select>
+            <span class="text-xs lg:text-sm text-red-500 hidden"
+              >Error Here</span
+            >
+          </div>
 
-            <!-- Forgot password -->
-            <div class="text-center">
-                <a href="{{url_for('admin')}}" class="text-sm text-blue-500 hover:text-blue-600">Back to admin</a>
-            </div>
-            <!-- Forgot password -->
-            <div class="text-center">
-                <a href="{{url_for('logout')}}" class="text-sm text-blue-500 hover:text-blue-600">logout</a>
-            </div>
-        </form>
+          <!-- Choose Categories -->
+          <div class="flex flex-col gap-1">
+            <label
+              for="categories"
+              class="text-gray-700 font-medium lg:text-lg"
+            >
+              Choose Categories
+            </label>
+            <input
+              id="categories"
+              type="text"
+              name="categories"
+              class="border border-gray-300 rounded-lg p-2 text-base focus-visible:outline-1 focus-visible:outline-darkmain"
+              placeholder="Enter the Categories"
+            />
+            <span class="text-xs lg:text-sm text-red-500 hidden"
+              >Error Here</span
+            >
+          </div>
+        </div>
 
-      
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full bg-darkmain border border-darkmain hover:bg-white hover:text-darkmain font-medium lg:font-semibold text-white rounded-2xl p-1.5 lg:p-2 text-lg lg:text-xl"
+        >
+          Submit
+        </button>
+      </form>
+    </main>
 
-    </div>
+    <script>
+      // Select elements
+      const menuBtn = document.getElementById("menu-btn");
+      const menu = document.getElementById("menu");
 
+      // Toggle menu visibility
+      menuBtn.addEventListener("click", () => {
+        menu.classList.toggle("-translate-x-full"); // Slide menu in/out
+        menuBtn.classList.toggle("active"); // Toggle active state for hamburger button
+        menu.classList.toggle("left-0");
+      });
 
-    {% endblock %}
+      // Close the menu when clicking outside of it
+      document.addEventListener("click", (e) => {
+        if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+          // If the click is outside the menu and hamburger button
+          menu.classList.add("-translate-x-full"); // Hide the menu
+          menuBtn.classList.remove("active"); // Reset the hamburger button state
+          menu.classList.remove("left-0");
+        }
+      });
+
+      // Prevent clicks inside the menu from closing it
+      menu.addEventListener("click", (e) => {
+        e.stopPropagation(); // Stop the click event from propagating to the document
+      });
+
+      // Select all accordion header containers
+      const accordionHeaders = document.querySelectorAll(
+        ".accordion-item > div"
+      );
+    </script>
+  </body>
+</html>

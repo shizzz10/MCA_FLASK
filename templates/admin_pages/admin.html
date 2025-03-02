@@ -1,41 +1,450 @@
 {% extends "admin_pages/base_admin.html" %}
-{% block title %} Index {% endblock %}
+{% block title %} Admin {% endblock %}
 {% block content %}
 
-    <div class="w-full max-w-md p-8 space-y-6 bg-white rounded-xl shadow-md">
-        <h2 class="text-2xl font-bold text-center text-gray-700">Admin page</h2>
 
-      
-        <!-- Forgot password -->
-        <div class="text-center">
-            <a href="{{url_for('add_blog')}}" class="text-sm text-blue-500 hover:text-blue-600">Add a blog</a>
+  
+      <!-- Content -->
+      <div class="flex flex-col gap-8 mt-6 mb-6 sm:mb-2 w-full xl:max-w-[1200px] overflow-hidden">
+        <!-- heading -->
+        <div class="flex items-start">
+          <h2 class="text-2xl sm:text-3xl lg:text-3xl text-darkmain font-bold">
+            Admin Dashboard<br />
+          </h2>
         </div>
-        <div class="text-center">
-            <a href="{{url_for('add_news')}}" class="text-sm text-blue-500 hover:text-blue-600">Add News</a>
+  
+        <!-- tab-button -->
+        <div class="flex items-center gap-3 sm:gap-5 lg:gap-6 button-slider overflow-hidden sm:flex-wrap lg:justify-between">
+          <div class="bg-darkmain/60 hover:bg-darkmain/70 rounded-2xl w-40 sm:w-44 lg:w-52 aspect-[6/4] flex flex-col gap-0 text-white overflow-hidden shrink-0">
+            <button class="tab-btn flex justify-around items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full" data-tab="blog">
+              <img src="{{url_for('static', filename='assets/file (2).svg')}}" class="w-7 sm:w-9 lg:w-10 flex" alt="" />
+              <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+                <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">8</h5>
+                <h5 class="flex font-semibold text-lg sm:text-xl lg:text-2xl leading-5">Blogs</h5>
+              </div>
+            </button>
+            <div class="flex bg-light hover:bg-light/90 w-full p-1.5 justify-center mt-auto">
+              <a href="{{url_for('add_blog')}}"  class="text-sm lg:text-base flex gap-4 font-medium">
+                Add Blog
+                <img src="{{url_for('static', filename='assets/plus-solid.svg')}}" class="w-3 lg:w-4" alt="" />
+              </a>
+            </div>
+          </div>
+  
+          <div class="bg-darkmain/60 hover:bg-darkmain/70 rounded-2xl w-40 sm:w-46 lg:w-52 aspect-[6/4] flex flex-col gap-0 text-white overflow-hidden shrink-0">
+            <button class="tab-btn flex justify-around items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full" data-tab="event">
+              <img src="{{url_for('static', filename='assets/calendar.svg')}}" class="w-7 sm:w-9 lg:w-10 flex" alt="" />
+              <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+                <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">8</h5>
+                <h5 class="flex font-semibold text-lg sm:text-xl lg:text-2xl leading-5">Event</h5>
+              </div>
+            </button>
+            <div class="flex bg-light hover:bg-light/90 w-full p-1.5 justify-center mt-auto">
+              <a href="{{url_for('add_event')}}" class="text-sm lg:text-base flex gap-4 font-medium">
+                Add Event
+                <img src="{{url_for('static', filename='assets/plus-solid.svg')}}" class="w-3 lg:w-4" alt="" />
+              </a>
+            </div>
+          </div>
+  
+          <div class="bg-darkmain/60 hover:bg-darkmain/70 rounded-2xl w-40 sm:w-46 lg:w-52 aspect-[6/4] flex flex-col gap-0 text-white overflow-hidden shrink-0">
+            <button class="tab-btn flex justify-around items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full" data-tab="news">
+              <img src="{{url_for('static', filename='assets/bullhorn.svg')}}" class="w-7 sm:w-9 lg:w-10 flex" alt="" />
+              <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+                <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">8</h5>
+                <h5 class="flex font-semibold text-lg sm:text-xl lg:text-2xl leading-5">News</h5>
+              </div>
+            </button>
+            <div class="flex bg-light hover:bg-light/90 w-full p-1.5 justify-center mt-auto">
+              <a href="{{url_for('add_news')}}" class="text-sm lg:text-base flex gap-4 font-medium">
+                Add News
+                <img src="{{url_for('static', filename='assets/plus-solid.svg')}}" class="w-3 lg:w-4" alt="" />
+              </a>
+            </div>
+          </div>
+  
+          <div class="bg-darkmain/60 hover:bg-darkmain/70 rounded-2xl w-40 sm:w-46 lg:w-52 aspect-[6/4] flex flex-col gap-0 text-white overflow-hidden shrink-0">
+            <button class="tab-btn flex justify-around items-center w-full px-3 py-2 lg:pt-4 sm:px-4 h-full" data-tab="users">
+              <img src="{{url_for('static', filename='assets/users-line-solid.svg')}}" class="w-7 sm:w-9 lg:w-10 flex" alt="" />
+              <div class="flex flex-col gap-0.5 lg:gap-3 items-start">
+                <h5 class="flex font-bold text-xl sm:text-2xl lg:text-3xl leading-5">8</h5>
+                <h5 class="flex font-semibold text-lg sm:text-xl lg:text-2xl leading-5">Users</h5>
+              </div>
+            </button>
+            <div class="flex bg-light hover:bg-light/90 w-full p-1.5 justify-center mt-auto">
+              <a href="" class="text-sm lg:text-base flex gap-4 font-medium">
+                Add User
+                <img src="{{url_for('static', filename='assets/plus-solid.svg')}}" class="w-3 lg:w-4" alt="" />
+              </a>
+            </div>
+          </div>
         </div>
-        <div class="text-center">
-            <a href="{{url_for('add_obituary')}}" class="text-sm text-blue-500 hover:text-blue-600">Add an Obituary</a>
+  
+        <div class="flex">
+          <!-- tab-content for blog -->
+          <div class="flex tab-content hidden flex-col gap-6 w-full overflow-hidden" id="content-blog">
+            <!-- search bar -->
+            <div class="flex items-center justify-center relative w-[90%]">
+              <input
+                type="text"
+                placeholder="Search blogs by title"
+                class="w-full border border-light rounded-4xl pl-8 p-2 text-black focus-visible:outline-darkmain"
+              />
+              <img src="{{url_for('static', filename='assets/search.svg')}}" class="w-5 absolute top-1/2 transform -translate-y-1/2 left-2" alt="" />
+            </div>
+  
+            <div class="flex flex-col button-slider overflow-hidden">
+              <table class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full">
+                <thead>
+                  <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base">
+                    <th class="">Name</th>
+                    <th class="">Description</th>
+                    <th class="">Status</th>
+                    <th class="">Role</th>
+                    <th class="">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class=""><span>Lorem ipsum dolor sit Blog</span></td>
+                    <td class="">Lorem ipsum dolor sit ametl.</td>
+                    <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class=""><span>Lorem ipsum dolor sit Blog</span></td>
+                    <td class="">Lorem ipsum dolor sit ametl.</td>
+                    <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class=""><span>Lorem ipsum dolor sit Blog</span></td>
+                    <td class="">Lorem ipsum dolor sit ametl.</td>
+                    <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class=""><span>Lorem ipsum dolor sit Blog</span></td>
+                    <td class="">Lorem ipsum dolor sit ametl.</td>
+                    <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+  
+          <!-- tab-content for event -->
+          <div class="flex flex-col button-slider overflow-hidden">
+            <table id="content-event" class="tab-content hidden bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full">
+              <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base">
+                  <th class="">Name</th>
+                  <th class="grid-cols-5">Description</th>
+                  <th class="">Status</th>
+                  <th class="grid-cols-5">Role</th>
+                  <th class="">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-600 text-sm font-light">
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class=""><span>Lorem ipsum dolor sit Event</span></td>
+                  <td class="grid-cols-5">Lorem ipsum dolor sit ametl.</td>
+                  <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                  <td class="grid-cols-5">Owner</td>
+                  <td class="flex flex-col gap-2">
+                    <a href="#" class="text-red-500 hover:underline">Delete</a>
+                    <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class=""><span>Lorem ipsum dolor sit Event</span></td>
+                  <td class="grid-cols-5">Lorem ipsum dolor sit ametl.</td>
+                  <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                  <td class="grid-cols-5">Owner</td>
+                  <td class="flex flex-col gap-2">
+                    <a href="#" class="text-red-500 hover:underline">Delete</a>
+                    <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class=""><span>Lorem ipsum dolor sit Event</span></td>
+                  <td class="grid-cols-5">Lorem ipsum dolor sit ametl.</td>
+                  <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                  <td class="grid-cols-5">Owner</td>
+                  <td class="flex flex-col gap-2">
+                    <a href="#" class="text-red-500 hover:underline">Delete</a>
+                    <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class=""><span>Lorem ipsum dolor sit Event</span></td>
+                  <td class="grid-cols-5">Lorem ipsum dolor sit ametl.</td>
+                  <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                  <td class="grid-cols-5">Owner</td>
+                  <td class="flex flex-col gap-2">
+                    <a href="#" class="text-red-500 hover:underline">Delete</a>
+                    <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <!-- tab-content for news -->
+          <div class="flex flex-col button-slider overflow-hidden">
+            <table id="content-news" class="tab-content hidden bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full">
+              <thead>
+                <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base">
+                  <th class="">Name</th>
+                  <th class="">Description</th>
+                  <th class="">Status</th>
+                  <th class="">Role</th>
+                  <th class="">Actions</th>
+                </tr>
+              </thead>
+              <tbody class="text-gray-600 text-sm font-light">
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class=""><span>Lorem ipsum dolor sit News</span></td>
+                  <td class="">Lorem ipsum dolor sit ametl.</td>
+                  <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                  <td class="">Owner</td>
+                  <td class="flex flex-col gap-2">
+                    <a href="#" class="text-red-500 hover:underline">Delete</a>
+                    <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class=""><span>Lorem ipsum dolor sit Event</span></td>
+                  <td class="">Lorem ipsum dolor sit ametl.</td>
+                  <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                  <td class="">Owner</td>
+                  <td class="flex flex-col gap-2">
+                    <a href="#" class="text-red-500 hover:underline">Delete</a>
+                    <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class=""><span>Lorem ipsum dolor sit News</span></td>
+                  <td class="">Lorem ipsum dolor sit ametl.</td>
+                  <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                  <td class="">Owner</td>
+                  <td class="flex flex-col gap-2">
+                    <a href="#" class="text-red-500 hover:underline">Delete</a>
+                    <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                  </td>
+                </tr>
+  
+                <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                  <td class=""><span>Lorem ipsum dolor sit News</span></td>
+                  <td class="">Lorem ipsum dolor sit ametl.</td>
+                  <td class=""><span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span></td>
+                  <td class="">Owner</td>
+                  <td class="flex flex-col gap-2">
+                    <a href="#" class="text-red-500 hover:underline">Delete</a>
+                    <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+  
+          <!-- tab-content for users -->
+          <div id="content-users" class="tab-content hidden flex flex-col gap-6 w-full">
+            <!-- search bar -->
+            <div class="flex items-center justify-center relative w-[90%]">
+              <input
+                type="text"
+                placeholder="Search user by name"
+                class="w-full border border-light rounded-4xl pl-8 p-2 text-black focus-visible:outline-darkmain"
+              />
+              <img src="{{url_for('static', filename='assets/search.svg')}}" class="w-5 absolute top-1/2 transform -translate-y-1/2 left-2" alt="" />
+            </div>
+            <div class="flex flex-col button-slider overflow-hidden">
+              <table class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full">
+                <thead>
+                  <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base">
+                    <th class="">Name</th>
+                    <th class="">Title</th>
+                    <th class="">Status</th>
+                    <th class="">Role</th>
+                    <th class="">Actions</th>
+                  </tr>
+                </thead>
+                <tbody class="text-gray-600 text-sm font-light">
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class="flex flex-col items-center">
+                      <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                      <span>Eddie Netto</span>
+                    </td>
+                    <td class="">
+                      Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                    </td>
+                    <td class="">
+                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class="flex flex-col items-center">
+                      <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                      <span>Eddie Netto</span>
+                    </td>
+                    <td class="">
+                      Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                    </td>
+                    <td class="">
+                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class="flex flex-col items-center">
+                      <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                      <span>Eddie Netto</span>
+                    </td>
+                    <td class="">
+                      Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                    </td>
+                    <td class="">
+                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class="flex flex-col items-center">
+                      <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                      <span>Eddie Netto</span>
+                    </td>
+                    <td class="">
+                      Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                    </td>
+                    <td class="">
+                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class="flex flex-col items-center">
+                      <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                      <span>Eddie Netto</span>
+                    </td>
+                    <td class="">
+                      Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                    </td>
+                    <td class="">
+                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class="flex flex-col items-center">
+                      <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                      <span>Eddie Netto</span>
+                    </td>
+                    <td class="">
+                      Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                    </td>
+                    <td class="">
+                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-correction500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class="flex flex-col items-center">
+                      <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                      <span>Eddie Netto</span>
+                    </td>
+                    <td class="">
+                      Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                    </td>
+                    <td class="">
+                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+  
+                  <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                    <td class="flex flex-col items-center">
+                      <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                      <span>Eddie Netto</span>
+                    </td>
+                    <td class="">
+                      Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                    </td>
+                    <td class="">
+                      <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                    </td>
+                    <td class="">Owner</td>
+                    <td class="flex flex-col gap-2">
+                      <a href="#" class="text-red-500 hover:underline">Delete</a>
+                      <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
         </div>
-        <div class="text-center">
-            <a href="{{url_for('add_event')}}" class="text-sm text-blue-500 hover:text-blue-600">Add an Event</a>
-        </div>
-        <div class="text-center">
-            <a href="{{url_for('add_artist')}}" class="text-sm text-blue-500 hover:text-blue-600">Add an Artist</a>
-        </div>
-        <div class="text-center">
-            <a href="{{url_for('edit_about_us')}}" class="text-sm text-blue-500 hover:text-blue-600">Edit About us content</a>
-        </div>
-        <div class="text-center">
-            <a href="{{url_for('edit_static_pages_content')}}" class="text-sm text-blue-500 hover:text-blue-600">Static Pages Content</a>
-        </div>
-        <!-- Forgot password -->
-        <div class="text-center">
-            <a href="{{url_for('logout')}}" class="text-sm text-blue-500 hover:text-blue-600">logout</a>
-        </div>
-
-      
-
-    </div>
+      </div>
 
 
     {% endblock %}

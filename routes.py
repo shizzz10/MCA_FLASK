@@ -126,6 +126,30 @@ def admin():
 def add_blog():
     return render_template('admin_pages/add_blog.html')
 
+# Define the artists_admin route
+@app.route('/artists_admin',  methods=['GET', 'POST'])
+@login_required
+def artists_admin():
+    return render_template('admin_pages/artists_admin.html')
+
+# Define the committee_admin route
+@app.route('/committee_admin',  methods=['GET', 'POST'])
+@login_required
+def committee_admin():
+    return render_template('admin_pages/committee_admin.html')
+
+# Define the contact_dev route
+@app.route('/contact_dev',  methods=['GET', 'POST'])
+@login_required
+def contact_dev():
+    return render_template('admin_pages/contact_dev.html')
+
+# Define the pages_admin route
+@app.route('/pages_admin',  methods=['GET', 'POST'])
+@login_required
+def pages_admin():
+    return render_template('admin_pages/pages_admin.html')
+
 # Define the login route
 @app.route('/add_news',  methods=['GET', 'POST'])
 @login_required

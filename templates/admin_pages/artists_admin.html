@@ -1,0 +1,181 @@
+{% extends "admin_pages/base_admin.html" %}
+{% block title %} Admin Artists {% endblock %}
+{% block content %}
+
+
+
+    <!-- Content -->
+    <div class="flex flex-col gap-8 mt-6 mb-6 sm:mb-2 w-full xl:max-w-[1200px] overflow-hidden">
+      <!-- heading -->
+      <div class="flex items-center gap-6">
+        <h2 class="text-2xl sm:text-3xl lg:text-3xl text-darkmain font-bold">
+          Artists
+        </h2>
+        <a href="{{url_for('add_artist')}}" class="lg:text-lg font-medium text-darkmain lg:py-1 py-0.5 px-2 lg:px-3 border border-[#D2DAFF] rounded-lg bg-[#DBE2EF] hover:bg-[#DBE2EF]/70">Add Artist</a>
+      </div>
+
+      <!-- Artists -->
+      <div class="flex flex-col gap-6 w-full">
+        <div class="flex flex-col button-slider overflow-hidden">
+          <table class="bg-white shadow-sm shadow-black/20 rounded-lg overflow-hidden shrink-0 w-[600px] sm:w-full">
+            <thead>
+              <tr class="bg-gray-200 text-gray-600 uppercase text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 font-medium lg:text-base">
+                <th class="">Name</th>
+                <th class="">Title</th>
+                <th class="">Status</th>
+                <th class="">Role</th>
+                <th class="">Actions</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-600 text-sm font-light">
+              <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                <td class="flex flex-col items-center">
+                  <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                  <span>Eddie Netto</span>
+                </td>
+                <td class="">
+                  Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                </td>
+                <td class="">
+                  <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                </td>
+                <td class="">Owner</td>
+                <td class="flex flex-col gap-2">
+                  <a href="#" class="text-red-500 hover:underline">Delete</a>
+                  <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                <td class="flex flex-col items-center">
+                  <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                  <span>Eddie Netto</span>
+                </td>
+                <td class="">
+                  Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                </td>
+                <td class="">
+                  <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                </td>
+                <td class="">Owner</td>
+                <td class="flex flex-col gap-2">
+                  <a href="#" class="text-red-500 hover:underline">Delete</a>
+                  <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                <td class="flex flex-col items-center">
+                  <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                  <span>Eddie Netto</span>
+                </td>
+                <td class="">
+                  Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                </td>
+                <td class="">
+                  <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                </td>
+                <td class="">Owner</td>
+                <td class="flex flex-col gap-2">
+                  <a href="#" class="text-red-500 hover:underline">Delete</a>
+                  <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                <td class="flex flex-col items-center">
+                  <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                  <span>Eddie Netto</span>
+                </td>
+                <td class="">
+                  Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                </td>
+                <td class="">
+                  <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                </td>
+                <td class="">Owner</td>
+                <td class="flex flex-col gap-2">
+                  <a href="#" class="text-red-500 hover:underline">Delete</a>
+                  <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                <td class="flex flex-col items-center">
+                  <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                  <span>Eddie Netto</span>
+                </td>
+                <td class="">
+                  Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                </td>
+                <td class="">
+                  <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                </td>
+                <td class="">Owner</td>
+                <td class="flex flex-col gap-2">
+                  <a href="#" class="text-red-500 hover:underline">Delete</a>
+                  <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                <td class="flex flex-col items-center">
+                  <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                  <span>Eddie Netto</span>
+                </td>
+                <td class="">
+                  Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                </td>
+                <td class="">
+                  <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                </td>
+                <td class="">Owner</td>
+                <td class="flex flex-col gap-2">
+                  <a href="#" class="text-red-500 hover:underline">Delete</a>
+                  <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                <td class="flex flex-col items-center">
+                  <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                  <span>Eddie Netto</span>
+                </td>
+                <td class="">
+                  Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                </td>
+                <td class="">
+                  <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                </td>
+                <td class="">Owner</td>
+                <td class="flex flex-col gap-2">
+                  <a href="#" class="text-red-500 hover:underline">Delete</a>
+                  <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                </td>
+              </tr>
+
+              <tr class="border-b border-gray-200 hover:bg-gray-100 text-sm leading-normal grid grid-cols-5 gap-4 sm:gap-6 lg:gap-8 justify-items-start py-1.5 px-3 sm:py-2 sm:px-4 lg:py-3 lg:px-6 lg:text-base">
+                <td class="flex flex-col items-center">
+                  <img class="w-12 h-12 rounded-full mr-2" src="{{url_for('static', filename='assets/artist1.jpg')}}" alt="User" />
+                  <span>Eddie Netto</span>
+                </td>
+                <td class="">
+                  Singer <br /><span class="text-gray-400 text-xs">abc@gmail.com</span>
+                </td>
+                <td class="">
+                  <span class="bg-green-200 text-green-600 py-1 px-3 rounded-full text-xs">Active</span>
+                </td>
+                <td class="">Owner</td>
+                <td class="flex flex-col gap-2">
+                  <a href="#" class="text-red-500 hover:underline">Delete</a>
+                  <a href="#" class="text-blue-500 hover:underline">Edit</a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+{% endblock %}

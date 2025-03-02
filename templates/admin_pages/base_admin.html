@@ -3,74 +3,206 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> {% block title %} {% endblock %} | MCA</title>
-    <link rel="stylesheet" href="{{url_for('static', filename='styles/output.css')}}" />
+    <title>{% block title %} {% endblock %} | MCA</title>
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='styles/output.css')}}"
+    />
   </head>
   <body class="xl:flex xl:flex-col xl:items-center bg-[#f0eeee]">
-  <header class="flex justify-between items-center gap-2 px-3 py-0.5 bg-lightmain w-full sticky lg:relative top-0 z-20 h-14 lg:h-16">
-  <div class="flex gap-2 items-center">
-    <!-- Hamburger Button -->
-    <div class="flex bg-gradient-to-b from-light to-lightmain p-2 lg:p-3 rounded-full lg:hidden">
-      <button id="menu-btn" class="flex flex-col justify-between w-4 h-4">
-        <span class="block w-4 h-0.5 bg-white transition-transform origin-center duration-500 ease-in-out"></span>
-        <span class="block w-4 h-0.5 bg-white transition-opacity duration-500"></span>
-        <span class="block w-4 h-0.5 bg-white transition-transform origin-center duration-500 ease-in-out"></span>
-      </button>
-    </div>
+    <header
+      class="flex justify-between items-center gap-2 px-3 py-0.5 bg-lightmain w-full sticky lg:relative top-0 z-20 h-14 lg:h-16"
+    >
+      <div class="flex gap-2 items-center">
+        <!-- Hamburger Button -->
+        <div
+          class="flex bg-gradient-to-b from-light to-lightmain p-2 lg:p-3 rounded-full lg:hidden"
+        >
+          <button id="menu-btn" class="flex flex-col justify-between w-4 h-4">
+            <span
+              class="block w-4 h-0.5 bg-white transition-transform origin-center duration-500 ease-in-out"
+            ></span>
+            <span
+              class="block w-4 h-0.5 bg-white transition-opacity duration-500"
+            ></span>
+            <span
+              class="block w-4 h-0.5 bg-white transition-transform origin-center duration-500 ease-in-out"
+            ></span>
+          </button>
+        </div>
 
-    <!-- logo -->
-    <a href="../../../index.html" class="flex">
-      <img src="{{url_for('static', filename='assets/MCAlogo.png')}}" class="w-12 sm:w-14" alt="" />
-    </a>
-  </div>
+        <!-- logo -->
+        <a href="{{url_for('admin')}}" class="flex">
+          <img
+            src="{{url_for('static', filename='assets/MCAlogo.png')}}"
+            class="w-12 sm:w-14"
+            alt=""
+          />
+        </a>
+      </div>
 
-  <!-- Menu -->
-  <div id="menu" class="fixed top-14 -left-14 h-[100vh] bg-opacity-90 transform -translate-x-full transition-transform duration-500 ease-in-out z-50 flex justify-center overflow-hidden scroll-smooth">
+      <!-- Menu -->
+      <div
+        id="menu"
+        class="fixed top-14 -left-14 h-[100vh] bg-opacity-90 transform -translate-x-full transition-transform duration-500 ease-in-out z-50 flex justify-center overflow-hidden scroll-smooth"
+      >
+        <!-- sidebar -->
+        <div
+          class="flex flex-col w-80 border-r border-[#D2DAFF] bg-[#DBE2EF] sticky top-0 h-[100vh] shrink-0 overflow-y-scroll"
+        >
+          <!-- Dashboard Link -->
+          <a
+            href="{{url_for('admin')}}"
+            class="p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20 hover:bg-light/20{% endif %}"
+          >
+            <img
+              src="{{url_for('static', filename='assets/grip-vertical-solid.svg')}}"
+              class="h-6"
+              alt=""
+            />
+            <span>Dashboard</span>
+          </a>
+
+          <!-- Committee Link -->
+          <a
+            href="{{url_for('committee_admin')}}"
+            class="p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'committee_admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20 hover:bg-light/20{% endif %}"
+          >
+            <img
+              src="{{url_for('static', filename='assets/users-solid.svg')}}"
+              class="h-6"
+              alt=""
+            />
+            <span>Committee members</span>
+          </a>
+
+          <!-- Categories Link -->
+          <a
+            href="#"
+            class="p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'categories_admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20 hover:bg-light/20{% endif %}"
+          >
+            <img
+              src="{{url_for('static', filename='assets/layer-group-solid.svg')}}"
+              class="h-6"
+              alt=""
+            />
+            <span>Categories</span>
+          </a>
+
+          <!-- Artists Link -->
+          <a
+            href="{{url_for('artists_admin')}}"
+            class="p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'artists_admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20 hover:bg-light/20{% endif %}"
+          >
+            <img
+              src="{{url_for('static', filename='assets/microphone-lines-solid blue.svg')}}"
+              class="h-6"
+              alt=""
+            />
+            <span>Artists</span>
+          </a>
+
+          <!-- Edit Pages Link -->
+          <a
+            href="{{url_for('pages_admin')}}"
+            class="p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'pages_admin' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20 hover:bg-light/20{% endif %}"
+          >
+            <img
+              src="{{url_for('static', filename='assets/file-pen-solid.svg')}}"
+              class="h-6"
+              alt=""
+            />
+            <span>Edit Pages</span>
+          </a>
+
+          <!-- Contact Developers Link -->
+          <a
+            href="{{url_for('contact_dev')}}"
+            class="p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out {% if request.endpoint == 'contact_dev' %}bg-light border-l-darkmain{% else %}border-l-[#DBE2EF] hover:border-l-darkmain/20 hover:bg-light/20{% endif %}"
+          >
+            <img
+              src="{{url_for('static', filename='assets/comment-dots-solid.svg')}}"
+              class="h-6"
+              alt=""
+            />
+            <span>Contact developers</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="flex">
+        <a
+          href="{{url_for('logout')}}"
+          class="py-1 sm:py-1 lg:py-1.5 px-2.5 sm:px-3 lg:px-4 mt-auto flex justify-center items-center gap-2 text-base lg:text-lg font-semibold text-darkmain bg-gray-300 hover:bg-gray-300/50 rounded-xl"
+        >
+          Log Out
+          <img
+            src="{{url_for('static', filename='assets/right-from-bracket-solid.svg')}}"
+            class="h-5"
+            alt=""
+          />
+        </a>
+      </div>
+    </header>
+
+    
+<main class="px-2 lg:px-0 lg:pr-3 flex flex-col gap-8 w-full">
+  <!-- sidebar and content -->
+  <div class="flex gap-4">
     <!-- sidebar -->
-    <div class="flex flex-col w-80 border-r border-[#D2DAFF] bg-[#DBE2EF] sticky top-0 h-[100vh] shrink-0 overflow-y-scroll">
-      <a href="./admin-home.html" class="bg-light p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 border-l-darkmain transition-all duration-100 ease-in-out">
+    <div class="hidden lg:flex flex-col w-80 border-r border-[#D2DAFF] bg-[#DBE2EF] sticky top-0 h-[100vh] shrink-0">
+      <!-- Dashboard Link -->
+      <a href="{{url_for('admin')}}" class="p-5 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out 
+        {% if request.endpoint == 'admin' %}bg-light border-l-darkmain{% else %}hover:bg-light/20 hover:border-l-darkmain/20{% endif %}">
         <img src="{{url_for('static', filename='assets/grip-vertical-solid.svg')}}" class="h-6" alt="" />
         <span>Dashboard</span>
       </a>
-
-      <a href="./committee.html" class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 border-l-[#DBE2EF] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out">
+    
+      <!-- Committee Link -->
+      <a href="{{url_for('committee_admin')}}" class="p-5 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out 
+        {% if request.endpoint == 'committee_admin' %}bg-light border-l-darkmain{% else %}hover:bg-light/20 hover:border-l-darkmain/20{% endif %}">
         <img src="{{url_for('static', filename='assets/users-solid.svg')}}" class="h-6" alt="" />
         <span>Committee members</span>
       </a>
-
-      <a href="" class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 border-l-[#DBE2EF] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out">
+    
+      <!-- Categories Link -->
+      <a href="#" class="p-5 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out 
+        {% if request.endpoint == 'categories_admin' %}bg-light border-l-darkmain{% else %}hover:bg-light/20 hover:border-l-darkmain/20{% endif %}">
         <img src="{{url_for('static', filename='assets/layer-group-solid.svg')}}" class="h-6" alt="" />
         <span>Categories</span>
       </a>
-
-      <a href="./artists.html" class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 border-l-[#DBE2EF] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out">
+    
+      <!-- Artists Link -->
+      <a href="{{url_for('artists_admin')}}" class="p-5 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out 
+        {% if request.endpoint == 'artists_admin' %}bg-light border-l-darkmain{% else %}hover:bg-light/20 hover:border-l-darkmain/20{% endif %}">
         <img src="{{url_for('static', filename='assets/microphone-lines-solid blue.svg')}}" class="h-6" alt="" />
         <span>Artists</span>
       </a>
-
-      <a href="./pages.html" class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 border-l-[#DBE2EF] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out">
+    
+      <!-- Edit Pages Link -->
+      <a href="{{url_for('pages_admin')}}" class="p-5 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out 
+        {% if request.endpoint == 'pages_admin' %}bg-light border-l-darkmain{% else %}hover:bg-light/20 hover:border-l-darkmain/20{% endif %}">
         <img src="{{url_for('static', filename='assets/file-pen-solid.svg')}}" class="h-6" alt="" />
         <span>Edit Pages</span>
       </a>
-
-      <a href="./contact-dev.html" class="hover:bg-light/20 p-3 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 border-l-[#DBE2EF] hover:border-l-darkmain/20 transition-all duration-100 ease-in-out">
+    
+      <!-- Contact Developers Link -->
+      <a href="{{url_for('contact_dev')}}" class="p-5 font-semibold text-lg text-darkmain border-b border-[#D2DAFF] flex gap-2 border-l-4 transition-all duration-100 ease-in-out 
+        {% if request.endpoint == 'contact_dev' %}bg-light border-l-darkmain{% else %}hover:bg-light/20 hover:border-l-darkmain/20{% endif %}">
         <img src="{{url_for('static', filename='assets/comment-dots-solid.svg')}}" class="h-6" alt="" />
         <span>Contact developers</span>
       </a>
+    
+      
     </div>
-  </div>
 
-  <div class="flex">
-    <a href="" class="py-1 sm:py-1 lg:py-1.5 px-2.5 sm:px-3 lg:px-4 mt-auto flex justify-center items-center gap-2 text-base lg:text-lg font-semibold text-darkmain bg-gray-300 hover:bg-gray-300/50 rounded-xl">
-      Log Out
-      <img src="{{url_for('static', filename='assets/right-from-bracket-solid.svg')}}" class="h-5" alt="" />
-    </a>
-  </div>
-</header>
-
-   
     {% block content %} {% endblock %}
-   
+
+
+  </div>
+</main>
+
+
     <script>
       const buttons = document.querySelectorAll(".tab-btn");
       const contents = document.querySelectorAll(".tab-content");
@@ -147,6 +279,5 @@
         ".accordion-item > div"
       );
     </script>
-</body>
-
+  </body>
 </html>
