@@ -233,74 +233,114 @@
 
 
     
-    <script>
+<script>
+  const dropdowns = document.querySelectorAll(".menu-container");
 
-      // Select elements
-      const menuBtn = document.getElementById("menu-btn");
-      const menu = document.getElementById("menu");
+  dropdowns.forEach((dropdown) => {
+    const btn = dropdown.querySelector(".menu-btn"),
+      menu = dropdown.querySelector(".menu-dropdown"),
+      arrow = dropdown.querySelector(".menu-arrow");
 
-      // Toggle menu visibility
-      menuBtn.addEventListener("click", () => {
-        menu.classList.toggle("translate-x-full"); // Slide menu in/out
-        menuBtn.classList.toggle("active"); // Toggle active state for hamburger button
-        menu.classList.toggle("right-2");
-      });
-
-      // Close the menu when clicking outside of it
-      document.addEventListener("click", (e) => {
-        if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
-          // If the click is outside the menu and hamburger button
-          menu.classList.add("translate-x-full"); // Hide the menu
-          menuBtn.classList.remove("active"); // Reset the hamburger button state
-          menu.classList.remove("right-2");
-        }
-      });
-
-      // Prevent clicks inside the menu from closing it
-      menu.addEventListener("click", (e) => {
-        e.stopPropagation(); // Stop the click event from propagating to the document
-      });
-
-      // Select all accordion header containers
-      const accordionHeaders = document.querySelectorAll(
-        ".accordion-item > div"
+    // **Hover for Desktop (≥1024px)**
+    if (window.innerWidth >= 1024) {
+      dropdown.onmouseenter = () => (
+        menu.classList.remove("hidden"), arrow.classList.add("rotate-270")
       );
+      dropdown.onmouseleave = () => (
+        menu.classList.add("hidden"), arrow.classList.remove("rotate-270")
+      );
+    }
 
-      accordionHeaders.forEach((headerContainer) => {
-        headerContainer.addEventListener("click", () => {
-          // Find the accordion content (immediately after the header container)
-          const content = headerContainer.nextElementSibling;
-
-          // Find the arrow icon within the same header container
-          const arrow = headerContainer.querySelector(".arrow");
-
-          if (content.classList.contains("hidden")) {
-            // Expand the accordion content
-            content.classList.remove("hidden");
-            requestAnimationFrame(() => {
-              content.classList.add("opacity-100", "scale-y-100");
-              content.classList.remove("opacity-0", "scale-y-0");
-            });
-          } else {
-            // Collapse the accordion content
-            content.classList.add("opacity-0", "scale-y-0");
-            content.classList.remove("opacity-100", "scale-y-100");
-
-            // Wait for the animation to complete before hiding the content
-            content.addEventListener(
-              "transitionend",
-              () => {
-                content.classList.add("hidden");
-              },
-              { once: true }
-            );
+    // **Click for Mobile/Tablet (<1024px)**
+    btn.onclick = (event) => {
+      if (window.innerWidth < 1024) {
+        event.stopPropagation();
+        dropdowns.forEach((d) => {
+          if (d !== dropdown) {
+            d.querySelector(".menu-dropdown").classList.add("hidden");
+            d.querySelector(".menu-arrow").classList.remove("rotate-270");
           }
-
-          // Rotate the arrow icon
-          arrow.classList.toggle("rotate-180");
         });
-      });
-    </script>
+        menu.classList.toggle("hidden");
+        arrow.classList.toggle("rotate-270");
+      }
+    };
+  });
+
+  // **Close dropdowns when clicking outside**
+  document.onclick = (event) => {
+    dropdowns.forEach((d) => {
+      if (!d.contains(event.target)) {
+        d.querySelector(".menu-dropdown").classList.add("hidden");
+        d.querySelector(".menu-arrow").classList.remove("rotate-270");
+      }
+    });
+  };
+
+  // Select elements
+  const menuBtn = document.getElementById("menu-btn");
+  const menu = document.getElementById("menu");
+
+  // Toggle menu visibility
+  menuBtn.addEventListener("click", () => {
+    menu.classList.toggle("translate-x-full"); // Slide menu in/out
+    menuBtn.classList.toggle("active"); // Toggle active state for hamburger button
+    menu.classList.toggle("right-2");
+  });
+
+  // Close the menu when clicking outside of it
+  document.addEventListener("click", (e) => {
+    if (!menu.contains(e.target) && !menuBtn.contains(e.target)) {
+      // If the click is outside the menu and hamburger button
+      menu.classList.add("translate-x-full"); // Hide the menu
+      menuBtn.classList.remove("active"); // Reset the hamburger button state
+      menu.classList.remove("right-2");
+    }
+  });
+
+  // Prevent clicks inside the menu from closing it
+  menu.addEventListener("click", (e) => {
+    e.stopPropagation(); // Stop the click event from propagating to the document
+  });
+
+  // Select all accordion header containers
+  const accordionHeaders = document.querySelectorAll(".accordion-item > div");
+
+  accordionHeaders.forEach((headerContainer) => {
+    headerContainer.addEventListener("click", () => {
+      // Find the accordion content (immediately after the header container)
+      const content = headerContainer.nextElementSibling;
+
+      // Find the arrow icon within the same header container
+      const arrow = headerContainer.querySelector(".arrow");
+
+      if (content.classList.contains("hidden")) {
+        // Expand the accordion content
+        content.classList.remove("hidden");
+        requestAnimationFrame(() => {
+          content.classList.add("opacity-100", "scale-y-100");
+          content.classList.remove("opacity-0", "scale-y-0");
+        });
+      } else {
+        // Collapse the accordion content
+        content.classList.add("opacity-0", "scale-y-0");
+        content.classList.remove("opacity-100", "scale-y-100");
+
+        // Wait for the animation to complete before hiding the content
+        content.addEventListener(
+          "transitionend",
+          () => {
+            content.classList.add("hidden");
+          },
+          { once: true }
+        );
+      }
+
+      // Rotate the arrow icon
+      arrow.classList.toggle("rotate-180");
+    });
+  });
+</script>
 
   </body>
 
